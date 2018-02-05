@@ -5,6 +5,13 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
+import { CreateRoomPage } from '../pages/create-room/create-room';
+import { JoinRoomPage } from '../pages/join-room/join-room';
+import { ProfilePage } from '../pages/profile/profile';
+import { RoomChatPage } from '../pages/room-chat/room-chat';
+import { RoomInformationPage } from '../pages/room-information/room-information';
+import { RoomsPage } from '../pages/rooms/rooms';
+import { SettingsPage } from '../pages/settings/settings';
 
 @Component({
   templateUrl: 'app.html'
