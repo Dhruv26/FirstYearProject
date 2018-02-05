@@ -3,7 +3,7 @@
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
--->
+
 <ion-header>
 
   <ion-navbar>
@@ -11,8 +11,44 @@
   </ion-navbar>
 
 </ion-header>
+-->
 
-
-<ion-content padding>
-
-</ion-content>
+<ion-content class = "background" >
+    <h1 class = heading>Settings</h1>
+    <ion-card>
+      <ion-card-header>
+        Choose an option
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+            <ion-item>
+                <ion-label>Allow notifications</ion-label>
+                <ion-toggle></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Allow other users to see my name</ion-label>
+                <ion-toggle></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Allow location sharing</ion-label>
+                <ion-toggle></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Allow users to rate my performance</ion-label>
+                <ion-toggle></ion-toggle>
+            </ion-item>
+            <ion-item>
+                <ion-label>Enhance the contrast of the application</ion-label>
+                <ion-toggle></ion-toggle>
+            </ion-item>      
+          </ion-list>
+          <ion-grid>
+          <ion-row>
+            <ion-col col-12>
+              <button ion-button color = "danger" block outline>Save Settings</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>

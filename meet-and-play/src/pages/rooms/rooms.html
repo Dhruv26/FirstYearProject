@@ -3,7 +3,7 @@
 
   See http://ionicframework.com/docs/components/#navigation for more info on
   Ionic pages and navigation.
--->
+
 <ion-header>
 
   <ion-navbar>
@@ -11,8 +11,42 @@
   </ion-navbar>
 
 </ion-header>
+-->
 
-
-<ion-content padding>
-
-</ion-content>
+<ion-content class = "background" >
+    <h1 class = heading>Rooms</h1>
+    <ion-card>
+      <ion-card-header>
+        Choose an option
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col col-6>
+              <button ion-button color = "danger" block outline>Create Room</button>
+            </ion-col>
+            <ion-col col-6>
+              <button ion-button color = "danger" block outline>Join Room</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+        <ion-list>
+            <ion-item>
+              <strong>Local suggestions: </strong>
+            </ion-item>
+            <ion-item>
+                <strong>Chinese Kickboxing, </strong> Sudden community centre
+                <button ion-button color = "danger"> Join </button>
+              </ion-item>
+              <ion-item>
+                  <strong>Football for teenagers, </strong> Falinge Park 
+                  <button ion-button color = "danger"> Join </button>
+              </ion-item>
+              <ion-item>
+                  <strong>Cricket for all novice players, </strong> Falinge Park
+                  <button ion-button color = "danger"> Join </button>
+              </ion-item>   
+          </ion-list>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
