@@ -47,7 +47,8 @@
             <button ion-button color = "danger" block outline>Sign in</button>
           </ion-col>
           <ion-col col-6>
-            <button ion-button color = "danger" block outline>Sign up</button>
+            <button ion-button color = "danger" block outline
+             ion-button (click)="hide()" >Sign up</button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -56,6 +57,74 @@
       <ion-icon name = "logo-google"> </ion-icon>
       <div>Login with google</div>
       </button>
+     
+	
+<div *ngIf="hideMe">
+	
+      
+   <div class  = "create User">
+   <div class = "item item-avatar">
+      
+      <h2 *ngIf="hideMe">Creating an account</h2>
+   </div>
+   <div class = "item item-body">
+      Please enter you details below
+ <ion-item>
+          <ion-label floating color = "dark">Username</ion-label>
+          <ion-input type = "text"></ion-input>
+        </ion-item>  
+<ion-item>
+          <ion-label floating color = "dark">Email</ion-label>
+          <ion-input type = "text"></ion-input>
+        </ion-item>
+
+<ion-list>
+  <ion-item>
+    <ion-label floating color = "dark">Sports</ion-label>
+    <ion-select [(ngModel)]="toppings" multiple="true" >
+      <ion-option value="Football" >Football</ion-option>
+      <ion-option value="Basket Ball">Basket Ball</ion-option>
+      <ion-option value="Boxing" >Boxing</ion-option>
+      <ion-option value="Tenis">Tenis</ion-option>
+      <ion-option value="mushrooms">NetBall</ion-option>
+    </ion-select>
+  </ion-item>
+</ion-list>
+<ion-item>
+  <ion-label floating color = "dark">Date of birth</ion-label>
+  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>
+</ion-item>
+
+<ion-item>
+          <ion-label floating color = "dark">ForeName</ion-label>
+          <ion-input type = "text"></ion-input>
+        </ion-item>
+<ion-item>
+          <ion-label floating color = "dark">Surname</ion-label>
+          <ion-input type = "text"></ion-input>
+        </ion-item> 
+<ion-item>
+          <ion-label floating color = "dark">Password</ion-label>
+          <ion-input type = "text"></ion-input>
+        </ion-item> 
+<ion-item>
+          <ion-label floating color = "dark">Confirm Password</ion-label>
+          <ion-input type = "text"></ion-input>
+        </ion-item> 
+<ion-item>
+          <ion-label floating color = "dark">Confirm Password</ion-label>
+          <ion-input type = "text"></ion-input>
+	 
+	</ion-item> 
+<ion-item>
+<button ion-button color = "danger" block outline ion-button (click)="hide()">CREATE ACCOUNT</button>       
+</ion-item>
+</div>
+</div>
+   
+</div>
     </ion-card-content>
+
   </ion-card>
+  
 </ion-content>

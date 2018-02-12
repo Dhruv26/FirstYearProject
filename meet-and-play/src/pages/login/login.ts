@@ -28,4 +28,7 @@ export class LoginPage {
       this.tabBarElement.style.display = 'flex';
     }, 4000);
   }
+hide() {
+  this.hideMe = ~this.hideMe;
+}
 }
