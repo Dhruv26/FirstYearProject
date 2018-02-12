@@ -38,7 +38,7 @@
           <ion-input type = "password"></ion-input>
         </ion-item>
         <ion-item>
-          <p>Forgoten password? <a>Click here</a></p>
+     <a ion-button color = "danger" block outline ion-button (click)="forgot()">Fogot Password</a>
         </ion-item>
       </ion-list>
       <ion-grid>
@@ -64,7 +64,6 @@
       
    <div class  = "create User">
    <div class = "item item-avatar">
-      
       <h2 *ngIf="hideMe">Creating an account</h2>
    </div>
    <div class = "item item-body">
@@ -121,8 +120,19 @@
 </ion-item>
 </div>
 </div>
-   
+  
 </div>
+
+<div *ngIf="forgotPass">
+  Please enter you email address so we can send you a new email   
+  <ion-item>
+    <ion-label floating color = "dark">Enter Email</ion-label>
+    <ion-input type = "text"></ion-input>
+  </ion-item>
+  <button ion-button color = "danger" block outline ion-button (click)="forgot()">Send Email</button>  
+
+</div>
+
     </ion-card-content>
 
   </ion-card>
