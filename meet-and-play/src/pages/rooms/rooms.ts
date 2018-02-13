@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { CreateRoomPage } from '../create-room/create-room';
+import { JoinRoomPage } from '../join-room/join-room';
+import { PopoverController } from 'ionic-angular';
 
 /**
  * Generated class for the RoomsPage page.
@@ -15,11 +18,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class RoomsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public popoverCtrl: PopoverController, public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RoomsPage');
   }
+  CreateRoom() {
+    let popover = this.popoverCtrl.create(CreateRoomPage);
+    popover.present();
+  }
+  JoinRoom() {
+    let popover = this.popoverCtrl.create(JoinRoomPage);
+    popover.present();
+  }
+
 
 }

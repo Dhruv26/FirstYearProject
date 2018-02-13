@@ -23,10 +23,10 @@
         <ion-grid>
           <ion-row>
             <ion-col col-6>
-              <button ion-button color = "danger" block outline>Create Room</button>
+              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Create Room</button>
             </ion-col>
             <ion-col col-6>
-              <button ion-button color = "danger" block outline>Join Room</button>
+              <button ion-button (click)="JoinRoom()" color = "danger" block outline>Join Room</button>
             </ion-col>
           </ion-row>
         </ion-grid>
