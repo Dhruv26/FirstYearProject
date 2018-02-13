@@ -38,7 +38,7 @@ export class ProfilePage {
     const options = {
       center: location,
       zoom: 17,
-      mapTypeId: google.maps.MapTypeId.HYBRID
+      //mapTypeId: google.maps.MapTypeId.HYBRID
     }
 
     this.map = new google.maps.Map(this.mapRef.nativeElement, options);

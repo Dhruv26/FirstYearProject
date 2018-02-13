@@ -16,6 +16,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class LoginPage {
   splash = true;
   tabBarElement: any;
+  hideMe = false;
+  forgotPass = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.tabBarElement = document.querySelector('.tabbar');
@@ -30,14 +32,14 @@ export class LoginPage {
   }
 hide() 
 {
-  /*
+  
   this.hideMe = ~this.hideMe;
-  */
+  
 }
 forgot()
 {
-  /*
+  
   this.forgotPass = ~this.forgotPass;
-  */
+  
 }
 }
