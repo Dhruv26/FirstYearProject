@@ -30,10 +30,14 @@ export class LoginPage {
   }
 hide() 
 {
+  /*
   this.hideMe = ~this.hideMe;
+  */
 }
 forgot()
 {
+  /*
   this.forgotPass = ~this.forgotPass;
+  */
 }
 }
