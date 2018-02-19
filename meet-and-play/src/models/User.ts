@@ -1,7 +1,16 @@
 export interface User{
-    email: string;
-    username: string;
-    password: string;
-    password2: string;
-    name: string;
+
+    //This section stores the user's account details (encrypt password)
+    email: string;      //Used for notifications and sign up
+    username: string;   //Used in sign up and login
+    password: string;   //Used in sign up and login
+    password2: string;  //Used for sign up validation only
+    name: string;       //Used in user's profile tab
+
+    //This section stores the user's settings
+    allowNotifications: boolean;
+    nameVisible: boolean;
+    showLocation: boolean;
+    performanceRatings: boolean;
+    enhancedContrast: boolean;
 }

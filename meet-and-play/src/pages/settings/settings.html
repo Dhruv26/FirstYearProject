@@ -23,29 +23,29 @@
         <ion-list>
             <ion-item>
                 <ion-label>Allow notifications</ion-label>
-                <ion-toggle></ion-toggle>
+                <ion-toggle [(ngModel)]="user.allowNotifications" ng-checked="user.allowNotifications"></ion-toggle>
             </ion-item>
             <ion-item>
                 <ion-label>Allow other users to see my name</ion-label>
-                <ion-toggle></ion-toggle>
+                <ion-toggle [(ngModel)]="user.nameVisible" ng-checked="user.nameVisible"></ion-toggle>
             </ion-item>
             <ion-item>
                 <ion-label>Allow location sharing</ion-label>
-                <ion-toggle></ion-toggle>
+                <ion-toggle [(ngModel)]="user.showLocation" checked="user.showLocation"></ion-toggle>
             </ion-item>
             <ion-item>
                 <ion-label>Allow users to rate my performance</ion-label>
-                <ion-toggle></ion-toggle>
+                <ion-toggle [(ngModel)]="user.performanceRatings" checked="user.performanceRatings"></ion-toggle>
             </ion-item>
             <ion-item>
                 <ion-label>Enhance the contrast of the application</ion-label>
-                <ion-toggle></ion-toggle>
+                <ion-toggle [(ngModel)]="user.enhancedContrast" disabled="true"></ion-toggle>
             </ion-item>      
           </ion-list>
           <ion-grid>
           <ion-row>
             <ion-col col-12>
-              <button ion-button color = "danger" block outline>Save Settings</button>
+              <button ion-button color = "danger" block outline ion-button (click)="save()">Save Settings</button>
             </ion-col>
           </ion-row>
         </ion-grid>

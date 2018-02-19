@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { User } from '../../models/User';
 
 /**
  * Generated class for the SettingsPage page.
@@ -15,11 +16,27 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SettingsPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  user = {} as User;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
+    this.user.allowNotifications = true;
+    this.user.showLocation = false;
+    this.user.nameVisible = true;
+    this.user.performanceRatings = false;
+  }
+  save()
+  {
+    let alert = this.alertCtrl.create({
+      title: 'Settings saved',
+      message: 'The settings were saved successfully',
+      buttons: ['Dismiss']
+    })
+    alert.present();
+
   }
 
 }
