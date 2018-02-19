@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 //import { FileEncryption } from '@ionic-native/file-encryption';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { SignUpPage } from '../sign-up/sign-up';
+import { User } from '../../models/User';
 
 /**
  * Generated class for the LoginPage page.
@@ -20,8 +21,9 @@ export class LoginPage {
   tabBarElement: any;
   hideMe = false;
   forgotPass = false;
+  user = {} as User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
     this.tabBarElement = document.querySelector('.tabbar');
   }
 
@@ -50,6 +52,42 @@ export class LoginPage {
   }
   signIn()
   {
+    if ((this.user.username == null) || (this.user.username == ""))
+    {
+      let alert = this.alertCtrl.create({
+        title: 'Validation failed',
+        message: 'Username is required',
+        buttons: ['Dismiss']
+      })
+      alert.present();
+    }
+    else if ((this.user.password == null) || (this.user.password == ""))
+    {
+      let alert = this.alertCtrl.create({
+        title: 'Validation failed',
+        message: 'Password is required',
+        buttons: ['Dismiss']
+      })
+      alert.present();
+    }
+    else if (this.user.username != "AkbarRamzan")
+    {
+      let alert = this.alertCtrl.create({
+        title: 'Validation failed',
+        message: 'Username is incorrect',
+        buttons: ['Dismiss']
+      })
+      alert.present();
+    }
+    else if (this.user.password != "passowrd")
+    {
+      let alert = this.alertCtrl.create({
+        title: 'Validation failed',
+        message: 'Password is incorrect',
+        buttons: ['Dismiss']
+      })
+      alert.present();
+    }
     
   }
 }

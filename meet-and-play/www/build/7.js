@@ -27,7 +27,7 @@ var JoinRoomPageModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_2__join_room__["a" /* JoinRoomPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__join_room__["a" /* JoinRoomPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__join_room__["a" /* JoinRoomPage */]),
             ],
         })
     ], JoinRoomPageModule);
