@@ -7,12 +7,32 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Join Room</ion-title>
+    <ion-title>Back to Rooms</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class = "background" >
+    <h1 class = heading>Join room</h1>
+    <ion-card>
+      <ion-card-header>
+        Search for a room
+      </ion-card-header>
+      <ion-card-content>
+        <ion-list>
+            <ion-item>
+              <strong>Test_Content</strong>
+            </ion-item>
+          </ion-list>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Join Room</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+  </ion-content>
 
-</ion-content>

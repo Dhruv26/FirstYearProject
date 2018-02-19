@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 //import { CreateRoomPage } from '../create-room/create-room';
 import { JoinRoomPage } from '../join-room/join-room';
 import { PopoverController } from 'ionic-angular';
+import { CreateRoomPage } from '../create-room/create-room';
 
 /**
  * Generated class for the RoomsPage page.
@@ -29,19 +30,11 @@ export class RoomsPage {
     let popover = this.popoverCtrl.create(CreateRoomPage);
     popover.present();
     */
-    this.navCtrl.push(CreateRoomPage, {
-    });
+    this.navCtrl.push(CreateRoomPage, {});
   }
   JoinRoom() {
-    let popover = this.popoverCtrl.create(JoinRoomPage);
-    popover.present();
+    this.navCtrl.push(JoinRoomPage, {});
   }
 
 
-}
-  class CreateRoomPage {
-    constructor(private navParams: NavParams) {
-    let pageID = navParams.get('id');
-    let pageName = navParams.get('name');
-  }
 }

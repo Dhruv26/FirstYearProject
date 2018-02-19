@@ -25678,6 +25678,211 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+page-create-room #custom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  background-color: #002a3e;
+}
+
+page-create-room .flb {
+  background-color: #3ebffb;
+  height: 100%;
+  width: 100%;
+  -webkit-animation: pulse 1s linear forwards;
+  animation: pulse 1s linear forwards;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-create-room .Aligner-item {
+  max-width: 50%;
+}
+
+page-create-room .Aligner-item--top {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+page-create-room .Aligner-item--bottom {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+page-create-room #custom-overlay img {
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+  height: auto;
+  -webkit-animation: animation 3100ms linear infinite both;
+  animation: animation 3100ms linear infinite both;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+page-create-room .background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
+}
+
+page-create-room .scroll-content {
+  text-align: center;
+}
+
+page-create-room ion-card.card {
+  background: rgba(232, 230, 230, 0.6);
+  border-radius: 10px;
+}
+
+page-create-room .item {
+  background: rgba(232, 230, 230, 0);
+  color: white;
+}
+
+page-create-room ion-input {
+  border-bottom: #FD4D73 solid 1px;
+}
+
+page-create-room .heading {
+  color: white;
+  font-size: 3em;
+  font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
+  font-weight: ligher;
+}
+
+page-join-room #custom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  background-color: #002a3e;
+}
+
+page-join-room .flb {
+  background-color: #3ebffb;
+  height: 100%;
+  width: 100%;
+  -webkit-animation: pulse 1s linear forwards;
+  animation: pulse 1s linear forwards;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-join-room .Aligner-item {
+  max-width: 50%;
+}
+
+page-join-room .Aligner-item--top {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+page-join-room .Aligner-item--bottom {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+page-join-room #custom-overlay img {
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+  height: auto;
+  -webkit-animation: animation 3100ms linear infinite both;
+  animation: animation 3100ms linear infinite both;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+page-join-room .background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
+}
+
+page-join-room .scroll-content {
+  text-align: center;
+}
+
+page-join-room ion-card.card {
+  background: rgba(232, 230, 230, 0.6);
+  border-radius: 10px;
+}
+
+page-join-room .item {
+  background: rgba(232, 230, 230, 0);
+  color: white;
+}
+
+page-join-room ion-input {
+  border-bottom: #FD4D73 solid 1px;
+}
+
+page-join-room .heading {
+  color: white;
+  font-size: 3em;
+  font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
+  font-weight: ligher;
+}
+
 page-login #custom-overlay {
   position: fixed;
   top: 0;
@@ -25734,15 +25939,6 @@ page-login #custom-overlay img {
   animation: animation 3100ms linear infinite both;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
-}
-
-@-webkit-keyframes pulse {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }
 
 @keyframes pulse {

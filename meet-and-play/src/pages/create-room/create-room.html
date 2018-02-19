@@ -12,37 +12,31 @@
 
 </ion-header>
 -->
+<ion-header>
+
+    <ion-navbar>
+      <ion-title>Back to Rooms</ion-title>
+    </ion-navbar>
+  
+  </ion-header>
 
 <ion-content class = "background" >
-    <h1 class = heading>Rooms</h1>
+    <h1 class = heading>Create a room</h1>
     <ion-card>
       <ion-card-header>
-        Choose an option
+        Form
       </ion-card-header>
       <ion-card-content>
         <ion-list>
             <ion-item>
-              <strong>Local suggestions: </strong>
+              <strong>Test_Content</strong>
             </ion-item>
-            <ion-item>
-                <strong>Chinese Kickboxing, </strong> Sudden community centre
-                <button ion-button color = "danger"> Join </button>
-              </ion-item>
-              <ion-item>
-                  <strong>Football for teenagers, </strong> Falinge Park 
-                  <button ion-button color = "danger"> Join </button>
-              </ion-item>
-              <ion-item>
-                  <strong>Cricket for all novice players, </strong> Falinge Park
-                  <button ion-button color = "danger"> Join </button>
-              </ion-item>   
           </ion-list>
         <ion-grid>
           <ion-row>
             <ion-col>
               <button ion-button (click)="CreateRoom()" color = "danger" block outline>Create Room</button>
             </ion-col>
-            
           </ion-row>
         </ion-grid>
       </ion-card-content>
