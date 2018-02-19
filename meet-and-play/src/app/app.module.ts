@@ -15,6 +15,7 @@ import { RoomChatPage } from '../pages/room-chat/room-chat';
 import { RoomInformationPage } from '../pages/room-information/room-information';
 import { RoomsPage } from '../pages/rooms/rooms';
 import { SettingsPage } from '../pages/settings/settings';
+import { SignUpPage } from '../pages/sign-up/sign-up';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -34,7 +35,8 @@ import { MapsProvider } from '../providers/maps/maps';
     RoomChatPage,
     RoomInformationPage,
     RoomsPage,
-    SettingsPage
+    SettingsPage,
+    SignUpPage
   ],
   imports: [
     BrowserModule,
@@ -54,7 +56,8 @@ import { MapsProvider } from '../providers/maps/maps';
     RoomChatPage,
     RoomInformationPage,
     RoomsPage,
-    SettingsPage
+    SettingsPage,
+    SignUpPage
   ],
   providers: [
     StatusBar,

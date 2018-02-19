@@ -1,0 +1,4 @@
+// Required installs for cryptography plugin
+
+$ sudo ionic cordova plugin add cordova-safe
+$ sudo npm install --save @ionic-native/file-encryption

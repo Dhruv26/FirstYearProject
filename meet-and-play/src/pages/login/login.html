@@ -44,11 +44,12 @@
       <ion-grid>
         <ion-row>
           <ion-col col-6>
-            <button ion-button color = "danger" block outline>Sign in</button>
+            <button ion-button color = "danger" block outline
+            ion-button (click)="signIn()">Sign in</button>
           </ion-col>
           <ion-col col-6>
             <button ion-button color = "danger" block outline
-             ion-button (click)="hide()" >Sign up</button>
+             ion-button (click)="signUp()" >Sign up</button>
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -67,7 +68,7 @@
       <h2 *ngIf="hideMe">Creating an account</h2>
    </div>
    <div class = "item item-body">
-      Please enter you details below
+      Please enter you details below 
  <ion-item>
           <ion-label floating color = "dark">Username</ion-label>
           <ion-input type = "text"></ion-input>

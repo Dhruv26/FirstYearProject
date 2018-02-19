@@ -26240,3 +26240,92 @@ page-settings .heading {
   font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
   font-weight: ligher;
 }
+
+page-sign-up #custom-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100000;
+  width: 100%;
+  background-color: #002a3e;
+}
+
+page-sign-up .flb {
+  background-color: #3ebffb;
+  height: 100%;
+  width: 100%;
+  -webkit-animation: pulse 1s linear forwards;
+  animation: pulse 1s linear forwards;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+page-sign-up .Aligner-item {
+  max-width: 50%;
+}
+
+page-sign-up .Aligner-item--top {
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+}
+
+page-sign-up .Aligner-item--bottom {
+  -webkit-align-self: flex-end;
+  -ms-flex-item-align: end;
+  align-self: flex-end;
+}
+
+page-sign-up #custom-overlay img {
+  display: block;
+  margin: 0 auto;
+  width: 25%;
+  height: auto;
+  -webkit-animation: animation 3100ms linear infinite both;
+  animation: animation 3100ms linear infinite both;
+  -webkit-animation-delay: 1s;
+  animation-delay: 1s;
+}
+
+page-sign-up .background {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
+}
+
+page-sign-up .scroll-content {
+  text-align: center;
+}
+
+page-sign-up ion-card.card {
+  background: rgba(232, 230, 230, 0.6);
+  border-radius: 10px;
+}
+
+page-sign-up .item {
+  background: rgba(232, 230, 230, 0);
+  color: white;
+}
+
+page-sign-up ion-input {
+  border-bottom: #FD4D73 solid 1px;
+}
+
+page-sign-up .heading {
+  color: white;
+  font-size: 3em;
+  font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
+  font-weight: ligher;
+}

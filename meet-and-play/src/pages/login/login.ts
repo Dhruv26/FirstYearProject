@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
+//import { FileEncryption } from '@ionic-native/file-encryption';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { SignUpPage } from '../sign-up/sign-up';
 
 /**
  * Generated class for the LoginPage page.
@@ -30,16 +32,24 @@ export class LoginPage {
       this.tabBarElement.style.display = 'flex';
     }, 4000);
   }
-hide() 
-{
+  hide() 
+  {
   
-  this.hideMe = ~this.hideMe;
+  this.hideMe = !this.hideMe;
   
-}
-forgot()
-{
+  }
+  forgot()
+  {
   
-  this.forgotPass = ~this.forgotPass;
+  this.forgotPass = !this.forgotPass;
   
-}
+  }
+  signUp()
+  {
+    this.navCtrl.push(SignUpPage);
+  }
+  signIn()
+  {
+    
+  }
 }
