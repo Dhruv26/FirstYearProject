@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
 //import { FileEncryption } from '@ionic-native/file-encryption';
-import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Tabs } from 'ionic-angular';
 import { SignUpPage } from '../sign-up/sign-up';
+import { ProfilePage } from '../profile/profile'
 import { User } from '../../models/User';
+import { TabsPage } from '../tabs/tabs'; 
 
 /**
  * Generated class for the LoginPage page.
@@ -79,7 +81,7 @@ export class LoginPage {
       })
       alert.present();
     }
-    else if (this.user.password != "passowrd")
+    else if (this.user.password != "password")
     {
       let alert = this.alertCtrl.create({
         title: 'Validation failed',
@@ -87,6 +89,11 @@ export class LoginPage {
         buttons: ['Dismiss']
       })
       alert.present();
+    }
+    else
+    {
+      //this.navCtrl.push(ProfilePage);
+      this.navCtrl.setRoot(ProfilePage, {opentab: 2});
     }
     
   }

@@ -8,6 +8,7 @@ webpackJsonp([9],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up_sign_up__ = __webpack_require__(101);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(102);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -19,6 +20,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 //import { FileEncryption } from '@ionic-native/file-encryption';
+
 
 
 /**
@@ -80,13 +82,17 @@ var LoginPage = (function () {
             });
             alert.present();
         }
-        else if (this.user.password != "passowrd") {
+        else if (this.user.password != "password") {
             var alert = this.alertCtrl.create({
                 title: 'Validation failed',
                 message: 'Password is incorrect',
                 buttons: ['Dismiss']
             });
             alert.present();
+        }
+        else {
+            //this.navCtrl.push(ProfilePage);
+            this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__profile_profile__["a" /* ProfilePage */], { opentab: 2 });
         }
     };
     LoginPage = __decorate([

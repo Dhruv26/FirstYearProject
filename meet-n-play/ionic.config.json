@@ -1,8 +1,0 @@
-{
-  "name": "meet-n-play",
-  "app_id": "f3ec6612",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {}
-  }
-}
