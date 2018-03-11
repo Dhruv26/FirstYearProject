@@ -18,7 +18,10 @@
     <ion-card-header>
       ADDITIONAL INFO
     </ion-card-header>
-    
+    <ion-item>
+      <ion-label floating color = "dark">Phone number</ion-label>
+      <ion-input type = "tel" [(ngModel)]="user.phone"></ion-input>
+    </ion-item>
       <ion-list>
           <ion-item>
             <ion-label floating color = "dark">Preferred sports</ion-label>
@@ -40,7 +43,10 @@
           <a ion-button color = "danger" block outline ion-button (click)="signUp()">Sign Up</a>
         </ion-item>
       -->
-  </ion-card>
+    </ion-card>
+    <!--Internal ip. For release, use afzalramzan786.hopto.org:3390/ instead of IP-->
+    <img [src] ="imgSrc" alt="imgSrc" height="512" width="512">
+    <p>{{imgList}}</p>
   <ion-fab bottom right #fab>
     <button ion-fab>
       <ion-icon name = "arrow-dropright"></ion-icon>

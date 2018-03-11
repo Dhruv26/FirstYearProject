@@ -22,6 +22,8 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MapsProvider } from '../providers/maps/maps';
 
+import { Http, HttpModule } from '@angular/http';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -42,7 +44,8 @@ import { MapsProvider } from '../providers/maps/maps';
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [

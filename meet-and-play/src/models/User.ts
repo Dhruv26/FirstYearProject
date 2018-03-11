@@ -17,4 +17,8 @@ export interface User{
     //Variables from back end
     favouriteSport: string;
 
+    //Additional info
+    phone: string;
+    url: string;
+
 }

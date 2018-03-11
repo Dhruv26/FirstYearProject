@@ -24,6 +24,7 @@ export class SignUpPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
+    this.user.url = "http://192.168.1.67:3390/UserImg/Default.png";
   }
   
   Additional()
