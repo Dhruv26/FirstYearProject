@@ -58,7 +58,7 @@ export class LoginPage {
     {
       let alert = this.alertCtrl.create({
         title: 'Validation failed',
-        message: 'Username is required',
+        message: 'Email is required',
         buttons: ['Dismiss']
       })
       alert.present();

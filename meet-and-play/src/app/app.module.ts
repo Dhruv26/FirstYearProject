@@ -16,6 +16,7 @@ import { RoomInformationPage } from '../pages/room-information/room-information'
 import { RoomsPage } from '../pages/rooms/rooms';
 import { SettingsPage } from '../pages/settings/settings';
 import { SignUpPage } from '../pages/sign-up/sign-up';
+import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -36,7 +37,8 @@ import { MapsProvider } from '../providers/maps/maps';
     RoomInformationPage,
     RoomsPage,
     SettingsPage,
-    SignUpPage
+    SignUpPage,
+    AdditionalInfoPage
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,8 @@ import { MapsProvider } from '../providers/maps/maps';
     RoomInformationPage,
     RoomsPage,
     SettingsPage,
-    SignUpPage
+    SignUpPage,
+    AdditionalInfoPage
   ],
   providers: [
     StatusBar,

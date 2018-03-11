@@ -14,6 +14,8 @@ import { RoomsPage } from '../pages/rooms/rooms';
 import { SettingsPage } from '../pages/settings/settings';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 
+import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
+
 @Component({
   templateUrl: 'app.html'
 })

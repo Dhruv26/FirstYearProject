@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../models/User';
+import { AdditionalInfoPage } from '../additional-info/additional-info';
 
 /**
  * Generated class for the SignUpPage page.
@@ -23,6 +24,22 @@ export class SignUpPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
+  }
+  
+  Additional()
+  {
+    this.signUp();
+    //Below line is for debug use
+    //Uncomment the part below enable no-sign-up required
+    //*
+    let alert = this.alertCtrl.create({
+      title: 'DEBUG MODE',
+      message: 'DEBUG MOD IS ENABLED. ALLOWING ACCESS TO NEXT PAGE',
+      buttons: ['Dismiss']
+    })
+    alert.present();
+    this.navCtrl.push(AdditionalInfoPage);
+    //*/
   }
 
   signUp()
@@ -89,7 +106,8 @@ export class SignUpPage {
         buttons: ['Dismiss']
       })
       alert.present();
-      this.navCtrl.pop();
+      this.navCtrl.push(AdditionalInfoPage);
+      //this.navCtrl.pop();
     }
   }
 

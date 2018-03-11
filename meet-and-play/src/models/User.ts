@@ -13,4 +13,8 @@ export interface User{
     showLocation: boolean;
     performanceRatings: boolean;
     enhancedContrast: boolean;
+
+    //Variables from back end
+    favouriteSport: string;
+
 }
