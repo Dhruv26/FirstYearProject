@@ -11,6 +11,8 @@ import { RoomChatPage } from '../room-chat/room-chat';
 import { RoomInformationPage } from '../room-information/room-information';
 import { RoomsPage } from '../rooms/rooms';
 import { SettingsPage } from '../settings/settings';
+import { IonicPage, NavController, Tabs } from 'ionic-angular';
+import { Component, ViewChild} from '@angular/core';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -22,7 +24,15 @@ export class TabsPage {
   tab3Root = RoomsPage;
   tab4Root = SettingsPage;
 
-  constructor() {
+  @ViewChild('primaryTabs') primaryTabs: Tabs;
 
+  constructor(public navCtrl:NavController) {}
+
+  ionViewDidEnter() {
+    this.primaryTabs.select(0);
+    this.primaryTabs._setColor();
+  }
+  tabChanged(env) {
+    console.log(env);
   }
 }

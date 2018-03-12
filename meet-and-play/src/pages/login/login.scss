@@ -47,14 +47,14 @@ page-login {
   .background{
       width:100%;
       height:100%;
-      background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
+      background: linear-gradient(10deg, #white, #white);
   }
   .scroll-content
   {
       text-align: center;
   }
   ion-card.card{
-      background: rgba($color: rgb(232, 230, 230), $alpha: 0.6);
+      background: rgba($color: rgb(6, 231, 74), $alpha: 0.9);
       border-radius: 10px;
   }
   .item{
@@ -62,10 +62,10 @@ page-login {
     color:white;
   }
   ion-input{
-      border-bottom: #FD4D73 solid 1px;
+      border-bottom: #df744a solid 1px;
   }
   .heading{
-      color:white;
+      color: #88d317;
       font-size: 3em;
       font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
       font-weight: ligher;
