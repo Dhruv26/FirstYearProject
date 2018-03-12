@@ -33,7 +33,7 @@ export class LoginPage {
     this.tabBarElement.style.display = 'none';
     setTimeout(() => {
       this.splash = false;
-      this.tabBarElement.style.display = 'flex';
+      this.tabBarElement.style.display = 'none';
     }, 4000);
   }
   hide() 
@@ -92,6 +92,8 @@ export class LoginPage {
     }
     else
     {
+      //Enable the tabs
+      this.tabBarElement.style.display = 'flex';
       //this.navCtrl.push(ProfilePage);
       this.navCtrl.setRoot(ProfilePage, {opentab: 2});
     }

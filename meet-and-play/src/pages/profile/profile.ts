@@ -28,6 +28,7 @@ constructor(public navCtrl: NavController) {
 
   ionViewDidLoad() {
     this.showMap();
+    
   }
 
   showMap(){

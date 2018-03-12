@@ -1,6 +1,8 @@
 <ion-tabs name="primaryTabs" tabsLayout="icon-top" tabsPlacement="bottom"
 (ionChange)="tabChanged($event)" #primaryTabs>
-  <ion-tab [root]="tab1Root" tabTitle="Login" tabIcon="contacts"></ion-tab>
+  <div class="login">
+    <ion-tab [root]="tab1Root" tabTitle="Login" tabIcon="contacts"></ion-tab>
+  </div>
   <!--<ion-tab [root]="tab2Root" tabTitle="Profile" tabIcon="home"></ion-tab> -->
   <div class="home">
     <ion-tab [root]="tab2Root" tabTitle = "Homepage" tabIcon="tab-home" href='tab/home'></ion-tab>

@@ -35235,3 +35235,7 @@ page-sign-up .heading {
 .tab-home {
   background-image: url("../../assets/Logo.png");
 }
+
+.tab-login {
+  display: none;
+}
