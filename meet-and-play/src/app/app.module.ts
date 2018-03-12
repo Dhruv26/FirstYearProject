@@ -24,6 +24,10 @@ import { MapsProvider } from '../providers/maps/maps';
 
 import { Http, HttpModule } from '@angular/http';
 
+
+
+
+
 @NgModule({
   declarations: [
     MyApp,
@@ -68,6 +72,7 @@ import { Http, HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
+    
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     MapsProvider
   ]
