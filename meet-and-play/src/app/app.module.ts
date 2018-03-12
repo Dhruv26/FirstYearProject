@@ -24,6 +24,11 @@ import { MapsProvider } from '../providers/maps/maps';
 
 import { Http, HttpModule } from '@angular/http';
 
+//Profile picture
+import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
+import { File } from '@ionic-native/file';
+import { Camera } from '@ionic-native/camera';
+
 
 
 
@@ -72,9 +77,14 @@ import { Http, HttpModule } from '@angular/http';
   providers: [
     StatusBar,
     SplashScreen,
-    
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MapsProvider
+    MapsProvider,
+    FileTransfer,
+    FileTransferObject,
+    File,
+    Camera
+    //FileUploadOptions,
+    
   ]
 })
 export class AppModule {}
