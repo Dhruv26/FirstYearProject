@@ -2,6 +2,7 @@ import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
+import { HttpModule } from '@angular/http';
 
 import { AboutPage } from '../pages/about/about';
 import { ContactPage } from '../pages/contact/contact';
@@ -21,8 +22,6 @@ import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { MapsProvider } from '../providers/maps/maps';
-
-import { Http, HttpModule } from '@angular/http';
 
 //Profile picture
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
@@ -82,9 +81,10 @@ import { Camera } from '@ionic-native/camera';
     FileTransfer,
     FileTransferObject,
     File,
-    Camera
+    Camera,
+    HttpModule
     //FileUploadOptions,
-    
+
   ]
 })
 export class AppModule {}

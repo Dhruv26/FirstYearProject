@@ -4,7 +4,8 @@ import { IonicPage, NavController, NavParams, AlertController, Tabs } from 'ioni
 import { SignUpPage } from '../sign-up/sign-up';
 import { ProfilePage } from '../profile/profile'
 import { User } from '../../models/User';
-import { TabsPage } from '../tabs/tabs'; 
+import { TabsPage } from '../tabs/tabs';
+import { Http, Headers } from '@angular/http';
 
 /**
  * Generated class for the LoginPage page.
@@ -25,7 +26,7 @@ export class LoginPage {
   forgotPass = false;
   user = {} as User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public http: Http) {
     this.tabBarElement = document.querySelector('.tabbar');
   }
 
@@ -36,17 +37,17 @@ export class LoginPage {
       this.tabBarElement.style.display = 'none';
     }, 4000);
   }
-  hide() 
+  hide()
   {
-  
+
   this.hideMe = !this.hideMe;
-  
+
   }
   forgot()
   {
-  
+
   this.forgotPass = !this.forgotPass;
-  
+
   }
   signUp()
   {
@@ -54,6 +55,18 @@ export class LoginPage {
   }
   signIn()
   {
+    let data = { 'email': this.user.username, 'password': this.user.password };
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    this.http.post('api/account/login', JSON.stringify(data), {headers: headers})
+      .subscribe(response => {
+        if(response.status == "200")
+          this.navCtrl.setRoot(TabsPage);
+      }, (error) => {
+        console.log(error.status);
+      });
+    /*
     if ((this.user.username == null) || (this.user.username == ""))
     {
       let alert = this.alertCtrl.create({
@@ -97,6 +110,7 @@ export class LoginPage {
       //this.navCtrl.push(ProfilePage);
       this.navCtrl.setRoot(ProfilePage, {opentab: 2});
     }
-    
+    */
+
   }
 }
