@@ -34944,7 +34944,7 @@ page-profile .heading {
 }
 
 page-profile #map {
-  height: 100%;
+  min-height: 100%;
 }
 
 page-rooms #custom-overlay {
