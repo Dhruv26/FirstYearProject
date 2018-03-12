@@ -34659,7 +34659,7 @@ page-login #custom-overlay img {
 page-login .background {
   width: 100%;
   height: 100%;
-  background: linear-gradient(10deg, #white, #white);
+  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
 }
 
 page-login .scroll-content {
@@ -34677,11 +34677,11 @@ page-login .item {
 }
 
 page-login ion-input {
-  border-bottom: #df744a solid 1px;
+  border-bottom: #000000 solid 1px;
 }
 
 page-login .heading {
-  color: #88d317;
+  color: #ffffff;
   font-size: 3em;
   font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
   font-weight: ligher;
