@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+//import { Component } from '@angular/core';
 
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
@@ -30,7 +30,7 @@ export class TabsPage {
 
   ionViewDidEnter() {
     this.primaryTabs.select(0);
-    this.primaryTabs._setColor();
+    //this.primaryTabs. setColor();
   }
   tabChanged(env) {
     console.log(env);
