@@ -34,7 +34,7 @@ constructor(public navCtrl: NavController) {
   showMap(){
     
     
-    let latLng = new google.maps.LatLng(-34.9290, 138.6010);
+    let latLng = new google.maps.LatLng(53.4808, -2.2426);
  
     let mapOptions = {
       center: latLng,
