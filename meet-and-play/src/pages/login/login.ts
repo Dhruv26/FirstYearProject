@@ -61,7 +61,7 @@ export class LoginPage {
 
     this.http.post('api/account/login', JSON.stringify(data), {headers: headers})
       .subscribe(response => {
-        if(response.status == "200")
+        if(response.status == 200)
           this.navCtrl.setRoot(TabsPage);
       }, (error) => {
         console.log(error.status);
