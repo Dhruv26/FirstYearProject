@@ -52,8 +52,8 @@ export class SignUpPage {
 
     this.http.post('api/account/register', JSON.stringify(data), {headers: headers})
       .subscribe(response => {
-        if(response.status == "200")
-          this.navCtrl.setRoot(ProfilePage);
+        if(response.status == 200)
+          this.navCtrl.setRoot(AdditionalInfoPage);
       }, (error) => {
         console.log(error);
       });

@@ -34659,7 +34659,10 @@ page-login #custom-overlay img {
 page-login .background {
   width: 100%;
   height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
+  overflow: hidden;
+  position: absolute;
+  background: url(http://afzalramzan786.hopto.org:3390/UserImg/Background2.png) no-repeat center center fixed;
+  background-size: cover;
 }
 
 page-login .scroll-content {
@@ -34667,7 +34670,8 @@ page-login .scroll-content {
 }
 
 page-login ion-card.card {
-  background: rgba(6, 231, 74, 0.7);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.6)));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
   border-radius: 10px;
 }
 
@@ -34677,7 +34681,7 @@ page-login .item {
 }
 
 page-login ion-input {
-  border-bottom: #000000 solid 1px;
+  border-bottom: #ffffff solid 1px;
 }
 
 page-login .heading {
@@ -35206,7 +35210,8 @@ page-sign-up #custom-overlay img {
 page-sign-up .background {
   width: 100%;
   height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
+  background: url(https://www.publicdomainpictures.net/pictures/130000/velka/seamless-foliage-texture.jpg) center center repeat;
+  background-size: 20em;
 }
 
 page-sign-up .scroll-content {
@@ -35214,7 +35219,7 @@ page-sign-up .scroll-content {
 }
 
 page-sign-up ion-card.card {
-  background: rgba(232, 230, 230, 0.6);
+  background: rgba(232, 230, 230, 0.7);
   border-radius: 10px;
 }
 
