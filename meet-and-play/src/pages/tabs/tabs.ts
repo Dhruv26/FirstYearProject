@@ -19,14 +19,13 @@ import { Component, ViewChild} from '@angular/core';
 })
 export class TabsPage {
 
-  tab1Root = LoginPage;
-  tab2Root = ProfilePage;
-  tab3Root = RoomsPage;
-  tab4Root = SettingsPage;
+  tab1 = ProfilePage;
+  tab2 = RoomsPage;
+  tab3 = SettingsPage;
 
   @ViewChild('primaryTabs') primaryTabs: Tabs;
 
-  constructor(public navCtrl:NavController) {}
+  constructor(public navCtrl: NavController) {}
 
   ionViewDidEnter() {
     this.primaryTabs.select(0);

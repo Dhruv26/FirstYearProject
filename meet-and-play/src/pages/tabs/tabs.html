@@ -1,13 +1,5 @@
-<ion-tabs name="primaryTabs" tabsLayout="icon-top" tabsPlacement="bottom"
-(ionChange)="tabChanged($event)" #primaryTabs>
-  <div class="login">
-    <ion-tab [root]="tab1Root" tabTitle="Login" tabIcon="contacts"></ion-tab>
-  </div>
-  <!--<ion-tab [root]="tab2Root" tabTitle="Profile" tabIcon="home"></ion-tab> -->
-  <div class="home">
-    <ion-tab [root]="tab2Root" tabTitle = "Homepage" tabIcon="tab-home" href='tab/home'></ion-tab>
-  </div>
-  <!--  <ion-nav-view name="tab-home"></ion-nav-view> -->
-  <ion-tab [root]="tab3Root" tabTitle="Rooms" tabIcon="information-circle"></ion-tab>
-  <ion-tab [root]="tab4Root" tabTitle="Settings" tabIcon="cog"></ion-tab>
+<ion-tabs name="primaryTabs" tabsLayout="icon-top" tabsPlacement="bottom" (ionChange)="tabChanged($event)" #primaryTabs>
+  <ion-tab [root]="tab1" tabTitle = "Homepage" tabIcon="home"></ion-tab>
+  <ion-tab [root]="tab2" tabTitle="Rooms" tabIcon="information-circle"></ion-tab>
+  <ion-tab [root]="tab3" tabTitle="Settings" tabIcon="cog"></ion-tab>
 </ion-tabs>
