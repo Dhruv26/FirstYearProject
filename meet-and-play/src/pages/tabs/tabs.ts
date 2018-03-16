@@ -28,7 +28,7 @@ export class TabsPage {
   constructor(public navCtrl: NavController) {}
 
   ionViewDidEnter() {
-    this.primaryTabs.select(0);
+    this.primaryTabs.select(1);
     //this.primaryTabs. setColor();
   }
   tabChanged(env) {
