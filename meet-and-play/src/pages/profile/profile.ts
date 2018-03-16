@@ -1,5 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+import { User } from '../../models/User';
 
 
 /**
@@ -22,12 +24,15 @@ export class ProfilePage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
+  user = {} as User;
 
   constructor(public navCtrl: NavController) {
   }
 
   ionViewDidLoad() {
     this.showMap();
+    if (this.user.username == null)
+      this.navCtrl.setRoot(LoginPage);
   }
 
   showMap(){
