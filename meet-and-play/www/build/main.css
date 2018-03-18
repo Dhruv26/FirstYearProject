@@ -34295,6 +34295,15 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.background {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  background: url(../assets/imgs/Blur.png) no-repeat center center fixed;
+  background-size: cover;
+}
+
 page-additional-info #custom-overlay {
   position: fixed;
   top: 0;
@@ -34458,12 +34467,6 @@ page-create-room #custom-overlay img {
   100% {
     opacity: 1;
   }
-}
-
-page-create-room .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
 }
 
 page-create-room .scroll-content {
@@ -34656,15 +34659,6 @@ page-login #custom-overlay img {
   }
 }
 
-page-login .background {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-  position: absolute;
-  background: url(http://afzalramzan786.hopto.org:3390/UserImg/Background2.png) no-repeat center center fixed;
-  background-size: cover;
-}
-
 page-login .scroll-content {
   text-align: center;
 }
@@ -34689,6 +34683,10 @@ page-login .heading {
   font-size: 3em;
   font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
   font-weight: ligher;
+}
+
+page-login .p {
+  color: #ffffff;
 }
 
 /* Generated with Bounce.js. Edit at https://goo.gl/51kj7G */
@@ -34916,12 +34914,6 @@ page-profile #custom-overlay img {
   }
 }
 
-page-profile .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-profile .scroll-content {
   text-align: center;
 }
@@ -35020,12 +35012,6 @@ page-rooms #custom-overlay img {
   }
 }
 
-page-rooms .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-rooms .scroll-content {
   text-align: center;
 }
@@ -35118,12 +35104,6 @@ page-settings #custom-overlay img {
   }
 }
 
-page-settings .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-settings .scroll-content {
   text-align: center;
 }
@@ -35205,13 +35185,6 @@ page-sign-up #custom-overlay img {
   animation: animation 3100ms linear infinite both;
   -webkit-animation-delay: 1s;
   animation-delay: 1s;
-}
-
-page-sign-up .background {
-  width: 100%;
-  height: 100%;
-  background: url(https://www.publicdomainpictures.net/pictures/130000/velka/seamless-foliage-texture.jpg) center center repeat;
-  background-size: 20em;
 }
 
 page-sign-up .scroll-content {
