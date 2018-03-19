@@ -20,6 +20,7 @@
   
   </ion-header>
 
+
 <ion-content class = "background" >
     <h1 class = heading>Create a room</h1>
     <ion-card>
@@ -28,10 +29,25 @@
       </ion-card-header>
       <ion-card-content>
         <ion-list>
+          <!--
             <ion-item>
               <strong>Test_Content</strong>
             </ion-item>
+          -->
+            <ion-list>
+                <ion-item>
+                  <ion-label floating color = "dark">Sport</ion-label>
+                  <ion-select [(ngModel)]="sports" multiple="true" >
+                    <ion-option value="Football" >Football</ion-option>
+                    <ion-option value="Basket Ball">Basket Ball</ion-option>
+                    <ion-option value="Boxing" >Boxing</ion-option>
+                    <ion-option value="Tenis">Tenis</ion-option>
+                    <ion-option value="mushrooms">NetBall</ion-option>
+                  </ion-select>
+                </ion-item>
+              </ion-list>
           </ion-list>
+          
         <ion-grid>
           <ion-row>
             <ion-col>
@@ -40,5 +56,10 @@
           </ion-row>
         </ion-grid>
       </ion-card-content>
-    </ion-card>
+    </ion-card> 
+    <ion-content>
+        <div #map id="map"></div> 
+      </ion-content>
+      
   </ion-content>
+

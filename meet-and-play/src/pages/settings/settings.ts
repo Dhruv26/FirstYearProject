@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { User } from '../../models/User';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the SettingsPage page.
@@ -20,7 +21,10 @@ export class SettingsPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController) {
   }
-
+  logout()
+  {
+    this.navCtrl.setRoot(LoginPage);
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad SettingsPage');
     this.user.allowNotifications = true;

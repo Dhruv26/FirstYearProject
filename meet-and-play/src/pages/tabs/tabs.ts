@@ -12,7 +12,7 @@ import { RoomInformationPage } from '../room-information/room-information';
 import { RoomsPage } from '../rooms/rooms';
 import { SettingsPage } from '../settings/settings';
 import { IonicPage, NavController, Tabs } from 'ionic-angular';
-import { Component, ViewChild} from '@angular/core';
+import { ViewChild} from '@angular/core';
 import { User } from '../../models/User';
 
 

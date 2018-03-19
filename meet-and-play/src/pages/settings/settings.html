@@ -22,23 +22,23 @@
       <ion-card-content>
         <ion-list>
             <ion-item>
-                <ion-label>Allow notifications</ion-label>
+                <ion-label><strong>Allow notifications</strong></ion-label>
                 <ion-toggle [(ngModel)]="user.allowNotifications" ng-checked="user.allowNotifications"></ion-toggle>
             </ion-item>
             <ion-item>
-                <ion-label>Allow other users to see my name</ion-label>
+                <ion-label><strong>Allow other users to see my name</strong></ion-label>
                 <ion-toggle [(ngModel)]="user.nameVisible" ng-checked="user.nameVisible"></ion-toggle>
             </ion-item>
             <ion-item>
-                <ion-label>Allow location sharing</ion-label>
+                <ion-label><strong>Allow location sharing</strong></ion-label>
                 <ion-toggle [(ngModel)]="user.showLocation" checked="user.showLocation"></ion-toggle>
             </ion-item>
             <ion-item>
-                <ion-label>Allow users to rate my performance</ion-label>
+                <ion-label><strong>Allow users to rate my performance</strong></ion-label>
                 <ion-toggle [(ngModel)]="user.performanceRatings" checked="user.performanceRatings"></ion-toggle>
             </ion-item>
             <ion-item>
-                <ion-label>Enhance the contrast of the application</ion-label>
+                <ion-label><strong>Enhance the contrast of the application</strong></ion-label>
                 <ion-toggle [(ngModel)]="user.enhancedContrast" disabled="true"></ion-toggle>
             </ion-item>      
           </ion-list>
@@ -51,4 +51,9 @@
         </ion-grid>
       </ion-card-content>
     </ion-card>
+    <ion-fab top right #fab>
+        <button ion-fab (click)="logout()">
+          <ion-icon name = "key"></ion-icon>
+        </button>
+      </ion-fab>
   </ion-content>
