@@ -30,6 +30,7 @@
             </ion-col>
           </ion-row>
         </ion-grid>
+        <!--
         <ion-list>
             <ion-item>
               <strong>Local suggestions: </strong>
@@ -47,6 +48,20 @@
                   <button ion-button color = "danger"> Join </button>
               </ion-item>   
           </ion-list>
+        -->
+          <!--
+          <div *ngFor="let suggestion of suggestions">
+            <strong>{{suggestion.info}}</strong>
+          </div>
+        -->
+
+          <ion-list>
+              <ion-item *ngFor="let suggestion of suggestions">
+                  <!-- <strong></strong>-->
+                  <button ion-button large (click)="joinSuggestion(suggestion.id)" color = "danger" full> {{suggestion.info}} </button>
+                  </ion-item>
+          </ion-list>
+        
       </ion-card-content>
     </ion-card>
   </ion-content>
