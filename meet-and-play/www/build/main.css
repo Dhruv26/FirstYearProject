@@ -35212,10 +35212,13 @@ page-sign-up .heading {
   font-weight: ligher;
 }
 
-.tab-home {
+page-tabs .tabs .tab-item .icon.home {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
   background-image: url("../../assets/Logo.png");
 }
 
-.tab-login {
+page-tabs .tab-login {
   display: none;
 }
