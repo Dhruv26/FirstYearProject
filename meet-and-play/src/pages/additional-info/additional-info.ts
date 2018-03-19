@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, LoadingController, ToastController
 import { User } from '../../models/User';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { AlertController } from 'ionic-angular';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
@@ -34,7 +35,8 @@ export class AdditionalInfoPage {
     private transfer: FileTransfer,
     private camera: Camera,
     public loadingCtrl: LoadingController,
-    public toastCtrl: ToastController) {
+    public toastCtrl: ToastController,
+    private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -66,7 +68,34 @@ export class AdditionalInfoPage {
       this.imageURI = imageData;
     }, (err) => {
       console.log(err);
-      this.presentToast(err);
+      this.presentToast("No camera detected");
+
+      //Create alert to manually add URL
+      let alert = this.alertCtrl.create({
+        title: 'Input URL',
+        inputs: [
+          {
+            name: 'URL',
+            placeholder: 'URL'
+          },
+        ],
+        buttons: [
+          {
+            text: 'Cancel',
+            role: 'cancel',
+            handler: data => {
+              console.log('Cancel clicked');
+            }
+          },
+          {
+            text: 'Accept',
+            handler: data => {
+              
+            }
+          }
+        ]
+      });
+      alert.present();
     });
   }
   uploadFile() {
