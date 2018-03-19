@@ -53,6 +53,11 @@ export class LoginPage {
   {
     this.navCtrl.push(SignUpPage);
   }
+
+  setUser()
+  {
+  }
+
   signIn()
   {
     let data = { 'email': this.user.username, 'password': this.user.password };

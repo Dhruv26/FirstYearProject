@@ -34494,6 +34494,12 @@ page-create-room .heading {
   font-weight: ligher;
 }
 
+page-home #map {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 page-join-room #custom-overlay {
   position: fixed;
   top: 0;

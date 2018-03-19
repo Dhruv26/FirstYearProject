@@ -34295,6 +34295,15 @@ ion-navbar.toolbar {
   min-height: calc(46px + env(safe-area-inset-bottom));
 }
 
+.background {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  position: absolute;
+  background: url(../assets/imgs/Blur.png) no-repeat center center fixed;
+  background-size: cover;
+}
+
 page-additional-info #custom-overlay {
   position: fixed;
   top: 0;
@@ -34460,12 +34469,6 @@ page-create-room #custom-overlay img {
   }
 }
 
-page-create-room .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-create-room .scroll-content {
   text-align: center;
 }
@@ -34489,6 +34492,12 @@ page-create-room .heading {
   font-size: 3em;
   font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
   font-weight: ligher;
+}
+
+page-home #map {
+  min-height: 69%;
+  padding: 0;
+  margin: 0;
 }
 
 page-join-room #custom-overlay {
@@ -34656,18 +34665,13 @@ page-login #custom-overlay img {
   }
 }
 
-page-login .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-login .scroll-content {
   text-align: center;
 }
 
 page-login ion-card.card {
-  background: rgba(6, 231, 74, 0.7);
+  background: -webkit-gradient(linear, left top, right top, from(rgba(0, 0, 0, 0.2)), to(rgba(0, 0, 0, 0.6)));
+  background: linear-gradient(90deg, rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.6));
   border-radius: 10px;
 }
 
@@ -34677,7 +34681,7 @@ page-login .item {
 }
 
 page-login ion-input {
-  border-bottom: #000000 solid 1px;
+  border-bottom: #ffffff solid 1px;
 }
 
 page-login .heading {
@@ -34685,6 +34689,10 @@ page-login .heading {
   font-size: 3em;
   font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
   font-weight: ligher;
+}
+
+page-login .p {
+  color: #ffffff;
 }
 
 /* Generated with Bounce.js. Edit at https://goo.gl/51kj7G */
@@ -34912,12 +34920,6 @@ page-profile #custom-overlay img {
   }
 }
 
-page-profile .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-profile .scroll-content {
   text-align: center;
 }
@@ -34944,7 +34946,9 @@ page-profile .heading {
 }
 
 page-profile #map {
-  min-height: 100%;
+  min-height: 69%;
+  padding: 0;
+  margin: 0;
 }
 
 page-rooms #custom-overlay {
@@ -35012,12 +35016,6 @@ page-rooms #custom-overlay img {
   100% {
     opacity: 1;
   }
-}
-
-page-rooms .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
 }
 
 page-rooms .scroll-content {
@@ -35112,12 +35110,6 @@ page-settings #custom-overlay img {
   }
 }
 
-page-settings .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-settings .scroll-content {
   text-align: center;
 }
@@ -35201,18 +35193,12 @@ page-sign-up #custom-overlay img {
   animation-delay: 1s;
 }
 
-page-sign-up .background {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(10deg, #4E5EFC, #4EE7FC);
-}
-
 page-sign-up .scroll-content {
   text-align: center;
 }
 
 page-sign-up ion-card.card {
-  background: rgba(232, 230, 230, 0.6);
+  background: rgba(232, 230, 230, 0.7);
   border-radius: 10px;
 }
 
@@ -35232,10 +35218,13 @@ page-sign-up .heading {
   font-weight: ligher;
 }
 
-.tab-home {
+page-tabs .tabs .tab-item .icon.home {
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
   background-image: url("../../assets/Logo.png");
 }
 
-.tab-login {
+page-tabs .tab-login {
   display: none;
 }

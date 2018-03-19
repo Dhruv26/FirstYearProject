@@ -1,4 +1,4 @@
-//import { Component } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { AboutPage } from '../about/about';
 import { ContactPage } from '../contact/contact';
@@ -13,19 +13,28 @@ import { RoomsPage } from '../rooms/rooms';
 import { SettingsPage } from '../settings/settings';
 import { IonicPage, NavController, Tabs } from 'ionic-angular';
 import { Component, ViewChild} from '@angular/core';
+import { User } from '../../models/User';
+
+
 
 @Component({
   templateUrl: 'tabs.html'
 })
 export class TabsPage {
 
-  tab1 = ProfilePage;
+  tab1 = HomePage;
   tab2 = RoomsPage;
   tab3 = SettingsPage;
 
+  user = {} as User;
+
   @ViewChild('primaryTabs') primaryTabs: Tabs;
 
-  constructor(public navCtrl: NavController) {}
+  constructor(public navCtrl: NavController)
+  {
+    // if (user == null)
+    //  this.navCtrl.setRoot(LoginPage);
+  }
 
   ionViewDidEnter() {
     this.primaryTabs.select(1);
