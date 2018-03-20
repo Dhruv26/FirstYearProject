@@ -25,7 +25,8 @@ export class TabsPage {
 
   tab1 = HomePage;
   tab2 = RoomsPage;
-  tab3 = SettingsPage;
+  tab3 = ProfilePage;
+  tab4 = SettingsPage;
 
   @ViewChild('primaryTabs') primaryTabs: Tabs;
 

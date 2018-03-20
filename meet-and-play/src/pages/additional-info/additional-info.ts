@@ -9,6 +9,8 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { FileTransfer, FileUploadOptions, FileTransferObject } from '@ionic-native/file-transfer';
 import { Camera, CameraOptions } from '@ionic-native/camera';
+import { Md5 } from 'ts-md5/dist/md5';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the AdditionalInfoPage page.
@@ -30,13 +32,16 @@ export class AdditionalInfoPage {
   imgList:any = "Not loaded";
   imageURI:any;
   imageFileName:any;
+  email:string = "Loading...";
+  url:any  = "../../assets/imgs/Default.png";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, 
     private transfer: FileTransfer,
     private camera: Camera,
     public loadingCtrl: LoadingController,
     public toastCtrl: ToastController,
-    private alertCtrl: AlertController) {
+    private alertCtrl: AlertController,
+    private storage: Storage) {
   }
 
   ionViewDidLoad() {
@@ -44,6 +49,15 @@ export class AdditionalInfoPage {
     this.imgSrc = "http://192.168.1.67:3390/UserImg/Default.png";
     //"192.168.1.67:3390/UserImg/Default.png"
     //this.setInitMessage();
+    this.storage.get('email').then(data2 => {
+      this.email=data2;
+      console.log("Got email: " + this.email);
+      if (this.email != null)
+      {
+        console.log("email is defined")
+        this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.email.toString()) + "?s=400");
+      }
+    });
 
     this.imgList = this.getList();
   }
@@ -70,32 +84,7 @@ export class AdditionalInfoPage {
       console.log(err);
       this.presentToast("No camera detected");
 
-      //Create alert to manually add URL
-      let alert = this.alertCtrl.create({
-        title: 'Input URL',
-        inputs: [
-          {
-            name: 'URL',
-            placeholder: 'URL'
-          },
-        ],
-        buttons: [
-          {
-            text: 'Cancel',
-            role: 'cancel',
-            handler: data => {
-              console.log('Cancel clicked');
-            }
-          },
-          {
-            text: 'Accept',
-            handler: data => {
-              
-            }
-          }
-        ]
-      });
-      alert.present();
+      window.open("https://en.gravatar.com/?logout=1");
     });
   }
   uploadFile() {

@@ -30,7 +30,7 @@
               <ion-option value="Basket Ball">Basket Ball</ion-option>
               <ion-option value="Boxing" >Boxing</ion-option>
               <ion-option value="Tenis">Tenis</ion-option>
-              <ion-option value="mushrooms">NetBall</ion-option>
+              <ion-option value="NetBall">NetBall</ion-option>
             </ion-select>
           </ion-item>
         </ion-list>
@@ -43,9 +43,9 @@
           <a ion-button color = "danger" block outline ion-button (click)="signUp()">Sign Up</a>
         </ion-item>
       -->
-    </ion-card>
+    
     <!--Internal ip. For release, use afzalramzan786.hopto.org:3390/ instead of IP-->
-    <img [src] ="imgSrc" alt="imgSrc" height="512" width="512">
+    <img [src] ="url" alt="imgSrc" height="512" width="512">
     <!--<p>{{imgList}}</p>-->
     <!--
     <ion-item>
@@ -53,16 +53,18 @@
     </ion-item>-->
     <ion-grid>
       <ion-row>
-        <ion-col col-6>
+        <ion-col>
           <button ion-button color = "danger" block outline
-          ion-button (click)="getImage()">Take/ choose picture </button>
+          ion-button (click)="getImage()">Create profile picture</button>
         </ion-col>
+        <!--
         <ion-col col-6>
           <button ion-button color = "danger" block outline
            ion-button (click)="uploadFile()" >Upload image</button>
-        </ion-col>
+        </ion-col>-->
       </ion-row>
     </ion-grid>
+  </ion-card>
   <ion-fab bottom right #fab>
     <button ion-fab>
       <ion-icon name = "arrow-dropright"></ion-icon>

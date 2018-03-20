@@ -25,3 +25,69 @@
     background-size: cover;
     //background-size: 10em;
 }
+#custom-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100000;
+    width:100%;
+    background-color: #002a3e;
+  }
+  
+  .flb {
+    background-color: #3ebffb;
+    height:100%;
+    width:100%;
+    animation: pulse 1s linear forwards;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .Aligner-item {
+    max-width: 50%;
+  }
+  .Aligner-item--top {
+    align-self: flex-start;
+  }
+  .Aligner-item--bottom {
+    align-self: flex-end;
+  }
+  #custom-overlay img {
+    display: block;
+    margin: 0 auto;
+    width: 25%;
+    height: auto;
+    animation: animation 3100ms linear infinite both;
+    animation-delay: 1s;
+  }
+  @keyframes pulse {
+    0% {
+      opacity:0;
+    }
+    100% {
+      opacity:1;
+    }
+  }
+  .scroll-content
+  {
+      text-align: center;
+  }
+  ion-card.card{
+      background: rgba($color: rgb(232, 230, 230), $alpha: 0.6);
+      border-radius: 10px;
+  }
+  .item{
+    background: rgba($color: rgb(232, 230, 230), $alpha: 0);
+    color:white;
+  }
+  ion-input{
+      border-bottom: #FD4D73 solid 1px;
+  }
+  .heading{
+      color:white;
+      font-size: 3em;
+      font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
+      font-weight: ligher;
+  }

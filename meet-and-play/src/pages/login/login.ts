@@ -7,6 +7,7 @@ import { User } from '../../models/User';
 import { TabsPage } from '../tabs/tabs';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
+import { Md5} from 'ts-md5/dist/md5';
 
 @IonicPage()
 @Component({
@@ -19,6 +20,7 @@ export class LoginPage {
   hideMe = false;
   forgotPass = false;
   user = {} as User;
+  url:any  = "../../assets/imgs/Default.png";
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public http: Http, private storage: Storage) {
     // this.tabBarElement = document.querySelector('.tabbar');
@@ -76,6 +78,9 @@ export class LoginPage {
 
   signIn()
   {
+    //this.navCtrl.setRoot(TabsPage);
+    //this.navCtrl.setRoot(TabsPage);
+
     let data = { 'email': this.user.email, 'password': this.user.password };
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -91,5 +96,9 @@ export class LoginPage {
         console.log(error.status);
       });
 
+  }
+  emailChanged()
+  {
+    this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.user.email.toString()) + "?s=400");
   }
 }

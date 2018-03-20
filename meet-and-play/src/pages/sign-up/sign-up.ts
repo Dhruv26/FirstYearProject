@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { User } from '../../models/User';
 import { AdditionalInfoPage } from '../additional-info/additional-info';
 import { Http, Headers } from '@angular/http';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the SignUpPage page.
@@ -19,13 +20,17 @@ import { Http, Headers } from '@angular/http';
 export class SignUpPage {
 
   user = {} as User;
+  email:string = null;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public http: Http, private storage: Storage) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SignUpPage');
     this.user.url = "http://192.168.1.67:3390/UserImg/Default.png";
+  }
+  emailChanged(){
+    console.log(this.email);
   }
 
   Additional()
@@ -46,6 +51,9 @@ export class SignUpPage {
 
   signUp()
   {
+    this.storage.set('email', this.email);
+    console.log(this.email);
+
     let data = { 'name': this.user.username, 'email': this.user.email, 'password': this.user.password, "confirmPassword": this.user.password2 };
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');

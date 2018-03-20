@@ -30,6 +30,10 @@ import { Camera } from '@ionic-native/camera';
 
 import { IonicStorageModule } from '@ionic/storage';
 
+//Md5 checksum
+//import { Md5 } from 'ts-md5/dist/md5';
+//import { Md5 } from 'ts-md5/dist/md5';
+
 
 @NgModule({
   declarations: [
@@ -53,7 +57,8 @@ import { IonicStorageModule } from '@ionic/storage';
     BrowserModule,
     IonicModule.forRoot(MyApp),
     HttpModule,
-    IonicStorageModule.forRoot()
+    IonicStorageModule.forRoot(),
+    //Md5,
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -82,7 +87,8 @@ import { IonicStorageModule } from '@ionic/storage';
     FileTransferObject,
     File,
     Camera,
-    HttpModule
+    HttpModule,
+    //Md5
     //FileUploadOptions,
 
   ]
