@@ -1,19 +1,4 @@
 <!--
-  Generated template for the LoginPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
-
-  Creating custom login page
-
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Login</ion-title>
-  </ion-navbar>
-
-</ion-header>
--->
 <div id="custom-overlay" [style.display]="splash ? 'flex': 'none'">
   <div class="flb">
     <div class="Aligner-item Aligner-item--top"></div>
@@ -21,6 +6,7 @@
     <div class="Aligner-item Aligner-item--bottom"></div>
   </div>
 </div>
+-->
 <ion-content class = "background" >
   <h1 class = heading>Meet 'n' Play</h1>
   <ion-card>
@@ -31,7 +17,7 @@
       <ion-list no-lines>
         <ion-item>
           <ion-label floating color = "light" >Email</ion-label>
-          <ion-input type = "text" [(ngModel)]="user.username"></ion-input>
+          <ion-input type = "text" [(ngModel)]="user.email"></ion-input>
         </ion-item>
         <ion-item>
           <ion-label floating color = "light">Password</ion-label>
@@ -59,21 +45,21 @@
       <ion-icon name = "logo-google"> </ion-icon>
       <div>Login with google</div>
       </button> -->
-     
-	
+
+
 <div *ngIf="hideMe">
-	
-      
+
+
    <div class  = "create User">
    <div class = "item item-avatar">
       <h2 *ngIf="hideMe">Creating an account</h2>
    </div>
    <div class = "item item-body">
-      Please enter you details below 
+      Please enter you details below
  <ion-item>
           <ion-label floating color = "light">Username</ion-label>
           <ion-input type = "text"></ion-input>
-        </ion-item>  
+        </ion-item>
 <ion-item>
           <ion-label floating color = "light">Email</ion-label>
           <ion-input type = "text"></ion-input>
@@ -103,21 +89,21 @@
 <ion-item>
           <ion-label floating color = "light">Surname</ion-label>
           <ion-input type = "text"></ion-input>
-        </ion-item> 
+        </ion-item>
 <ion-item>
           <ion-label floating color = "light">Password</ion-label>
           <ion-input type = "text"></ion-input>
-        </ion-item> 
+        </ion-item>
 <ion-item>
           <ion-label floating color = "light">Confirm Password</ion-label>
           <ion-input type = "text"></ion-input>
-        </ion-item> 
+        </ion-item>
 <ion-item>
-<button ion-button color = "light" block outline ion-button (click)="hide()">CREATE ACCOUNT</button>       
+<button ion-button color = "light" block outline ion-button (click)="hide()">CREATE ACCOUNT</button>
 </ion-item>
 </div>
 </div>
-  
+
 </div>
 
 <div *ngIf="forgotPass" >
@@ -126,12 +112,12 @@
     <ion-label floating color = "light">Enter Email</ion-label>
     <ion-input type = "text"></ion-input>
   </ion-item>
-  <button ion-button color = "light" block outline ion-button (click)="forgot()">Send Email</button>  
+  <button ion-button color = "light" block outline ion-button (click)="forgot()">Send Email</button>
 
 </div>
 
     </ion-card-content>
 
   </ion-card>
-  
+
 </ion-content>

@@ -8,13 +8,6 @@ import { TabsPage } from '../tabs/tabs';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 
-/**
- * Generated class for the LoginPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-
 @IonicPage()
 @Component({
   selector: 'page-login',
@@ -28,22 +21,25 @@ export class LoginPage {
   user = {} as User;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public http: Http, private storage: Storage) {
-    this.tabBarElement = document.querySelector('.tabbar');
+    // this.tabBarElement = document.querySelector('.tabbar');
   }
 
   ionViewDidLoad() {
-    this.tabBarElement.style.display = 'none';
+    /* this.tabBarElement.style.display = 'none';
     setTimeout(() => {
       this.splash = false;
       this.tabBarElement.style.display = 'none';
-    }, 4000);
+    }, 4000); */
+    this.storage.get('id').then(data => {
+      if(data != null)
+        this.navCtrl.setRoot(TabsPage);
+    });
   }
   hide()
   {
-
-  this.hideMe = !this.hideMe;
-
+    this.hideMe = !this.hideMe;
   }
+
   forgot()
   {
 
@@ -55,16 +51,32 @@ export class LoginPage {
     this.navCtrl.push(SignUpPage);
   }
 
-  setUser(id: string, email: string, name: string)
+  setUser(email: string)
   {
-    this.storage.set('id', id);
-    this.storage.set('email', email);
-    this.storage.set('name', name);
+    let url = 'api/user/userByEmail/' + email;
+    console.log(url);
+    this.http.get(url).subscribe(response => {
+      if(response.status == 200)
+      {
+        this.setStorage(JSON.parse(response._body));
+
+      }
+    });
+  }
+
+  setStorage(body)
+  {
+    this.storage.set('id', body.id);
+    this.storage.set('name', body.name);
+    this.storage.set('email', body.userName);
+    this.storage.set('phone', body.phoneNumber);
+    this.storage.set('favouriteSports', body.favouriteSports);
+    this.storage.set('photoUrl', body.photoUrl);
   }
 
   signIn()
   {
-    let data = { 'email': this.user.username, 'password': this.user.password };
+    let data = { 'email': this.user.email, 'password': this.user.password };
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
 
@@ -72,57 +84,12 @@ export class LoginPage {
       .subscribe(response => {
         if(response.status == 200)
         {
-          this.setUser('1', this.user.username, '2');
+          this.setUser(this.user.email);
           this.navCtrl.setRoot(TabsPage);
         }
       }, (error) => {
         console.log(error.status);
       });
-    /*
-    if ((this.user.username == null) || (this.user.username == ""))
-    {
-      let alert = this.alertCtrl.create({
-        title: 'Validation failed',
-        message: 'Email is required',
-        buttons: ['Dismiss']
-      })
-      alert.present();
-    }
-    else if ((this.user.password == null) || (this.user.password == ""))
-    {
-      let alert = this.alertCtrl.create({
-        title: 'Validation failed',
-        message: 'Password is required',
-        buttons: ['Dismiss']
-      })
-      alert.present();
-    }
-    else if (this.user.username != "AkbarRamzan")
-    {
-      let alert = this.alertCtrl.create({
-        title: 'Validation failed',
-        message: 'Username is incorrect',
-        buttons: ['Dismiss']
-      })
-      alert.present();
-    }
-    else if (this.user.password != "password")
-    {
-      let alert = this.alertCtrl.create({
-        title: 'Validation failed',
-        message: 'Password is incorrect',
-        buttons: ['Dismiss']
-      })
-      alert.present();
-    }
-    else
-    {
-      //Enable the tabs
-      this.tabBarElement.style.display = 'flex';
-      //this.navCtrl.push(ProfilePage);
-      this.navCtrl.setRoot(ProfilePage, {opentab: 2});
-    }
-    */
 
   }
 }
