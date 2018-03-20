@@ -4,11 +4,10 @@ import { User } from '../../models/User';
 @Injectable()
 export class GlobalUser {
 
-  constructor() {
-    this.globalUser = {} as User;
+  constructor(public givenID: string, public givenEmail: string, public givenName: string) {
   }
 
-  setGlobalUser(user) {
+  setGlobalUser(user: User) {
     this.setGlobalUser = user;
   }
 

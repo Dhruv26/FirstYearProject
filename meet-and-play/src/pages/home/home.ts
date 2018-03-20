@@ -1,6 +1,7 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
+import { CreateRoom } from '../create-room/create-room';
 import { User } from '../../models/User';
 import { Http, Headers } from '@angular/http';
 
@@ -49,17 +50,17 @@ export class HomePage {
   addInfoWindow(marker, content){
     let infoWindow = new google.maps.InfoWindow({
       content: content
-  });
+    });
 
-  google.maps.event.addListener(marker, 'click', () => {
-    infoWindow.open(this.map, marker);
-  });
+    google.maps.event.addListener(marker, 'click', () => {
+      infoWindow.open(this.map, marker);
+    });
   }
 
   getRoomsLocations()
   {
     // this.http.get('api/account/info').subscribe(response => console.log(response));
-    this.http.get('api/rooms/getRoomsLocation/Football')
+    this.http.get('api/rooms')
       .subscribe(response => {
         if(response.status == 200)
         {
@@ -75,9 +76,14 @@ export class HomePage {
     for(let i = 0; i < locations.length; i++)
     {
       console.log(locations[i]);
-      let latLng = new google.maps.LatLng(locations[i].lat, locations[i].long);
+      let latLng = new google.maps.LatLng(locations[i].venueLat, locations[i].venueLong);
       this.addMarker(latLng);
     }
+  }
+
+  createRoom()
+  {
+    this.navCtrl.push(CreateRoom);
   }
 
 }

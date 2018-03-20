@@ -34488,6 +34488,12 @@ page-create-room .heading {
   font-weight: ligher;
 }
 
+page-create-room #map {
+  min-height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
 page-home #map {
   min-height: 100%;
   padding: 0;

@@ -15,7 +15,7 @@ import { IonicPage, NavController, Tabs } from 'ionic-angular';
 import { ViewChild} from '@angular/core';
 import { User } from '../../models/User';
 
-
+import { Storage } from '@ionic/storage';
 
 @Component({
   templateUrl: 'tabs.html'
@@ -26,21 +26,19 @@ export class TabsPage {
   tab2 = RoomsPage;
   tab3 = SettingsPage;
 
-  user = {} as User;
-
   @ViewChild('primaryTabs') primaryTabs: Tabs;
 
-  constructor(public navCtrl: NavController)
+  constructor(public navCtrl: NavController, private storage: Storage)
   {
-    // if (user == null)
-    //  this.navCtrl.setRoot(LoginPage);
+    this.storage.get('id').then(data => {
+      if(data == null)
+        this.navCtrl.setRoot(LoginPage);
+    });
   }
 
   ionViewDidEnter() {
-    this.primaryTabs.select(1);
+    this.primaryTabs.select(0);
     //this.primaryTabs. setColor();
   }
-  tabChanged(env) {
-    console.log(env);
-  }
+
 }

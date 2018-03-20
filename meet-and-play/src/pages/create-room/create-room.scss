@@ -9,7 +9,7 @@ page-create-room {
         width:100%;
         background-color: #002a3e;
       }
-      
+
       .flb {
         background-color: #3ebffb;
         height:100%;
@@ -64,5 +64,10 @@ page-create-room {
           font-size: 3em;
           font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
           font-weight: ligher;
+      }
+      #map{
+        min-height: 100%;
+        padding: 0;
+        margin: 0;
       }
 }

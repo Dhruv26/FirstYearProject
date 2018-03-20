@@ -6,6 +6,7 @@ import { ProfilePage } from '../profile/profile'
 import { User } from '../../models/User';
 import { TabsPage } from '../tabs/tabs';
 import { Http, Headers } from '@angular/http';
+import { Storage } from '@ionic/storage';
 
 /**
  * Generated class for the LoginPage page.
@@ -26,7 +27,7 @@ export class LoginPage {
   forgotPass = false;
   user = {} as User;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController, public http: Http, private storage: Storage) {
     this.tabBarElement = document.querySelector('.tabbar');
   }
 
@@ -54,8 +55,11 @@ export class LoginPage {
     this.navCtrl.push(SignUpPage);
   }
 
-  setUser()
+  setUser(id: string, email: string, name: string)
   {
+    this.storage.set('id', id);
+    this.storage.set('email', email);
+    this.storage.set('name', name);
   }
 
   signIn()
@@ -67,7 +71,10 @@ export class LoginPage {
     this.http.post('api/account/login', JSON.stringify(data), {headers: headers})
       .subscribe(response => {
         if(response.status == 200)
+        {
+          this.setUser('1', this.user.username, '2');
           this.navCtrl.setRoot(TabsPage);
+        }
       }, (error) => {
         console.log(error.status);
       });
