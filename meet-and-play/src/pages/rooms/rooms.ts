@@ -4,6 +4,7 @@ import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angu
 import { JoinRoomPage } from '../join-room/join-room';
 import { PopoverController } from 'ionic-angular';
 import { CreateRoomPage } from '../create-room/create-room';
+import { RoomChatPage } from '../room-chat/room-chat';
 
 /**
  * Generated class for the RoomsPage page.
@@ -82,6 +83,10 @@ export class RoomsPage {
 
     });
     alert.present();
+  }
+  chat()
+  {
+    this.navCtrl.push(RoomChatPage);
   }
 
 

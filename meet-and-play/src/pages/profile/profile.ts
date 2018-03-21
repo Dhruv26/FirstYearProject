@@ -30,7 +30,7 @@ export class ProfilePage {
     this.storage.get('name').then(data => this.name = data);
     this.storage.get('email').then(data => this.email = data);
     this.storage.get('phone').then(data => this.phone = data);
-    this.storage.get('favouriteSports').then(data => this.favouriteSports = data);
+    this.storage.get('favouriteSports').then(data => this.sports = data);
     this.storage.get('birthDate').then(data => this.birthDate = data);
     this.storage.get('photoUrl').then(data => {
       if(data == null)
@@ -86,14 +86,14 @@ export class ProfilePage {
 
   save()
   {
-    let data = { 'id': this.id, 'phoneNumber': this.phone, 'favouriteSports': this.favouriteSports, 'photoUrl': this.photoUrl, 'birthDate': this.birthDate };
+    let data = { 'id': this.id, 'phoneNumber': this.phone, 'favouriteSports': this.sports, 'photoUrl': this.url, 'birthDate': this.birthDate };
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
     this.http.post('api/user', JSON.stringify(data), { headers: headers }).subscribe(response => {
       if(response.status == 200)
       {
         this.storage.set('phone', this.phone);
-        this.storage.set('photoUrl', this.photoUrl);
+        this.storage.set('photoUrl', this.url);
         this.storage.set('birthDate', this.birthDate);
         
         let alert = this.alertCtrl.create({

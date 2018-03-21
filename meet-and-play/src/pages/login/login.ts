@@ -8,6 +8,7 @@ import { TabsPage } from '../tabs/tabs';
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
 import { Md5} from 'ts-md5/dist/md5';
+import { RoomChatPage } from '../room-chat/room-chat';
 
 @IonicPage()
 @Component({
@@ -90,6 +91,7 @@ export class LoginPage {
         {
           this.setUser(this.user.email);
           this.navCtrl.setRoot(TabsPage);
+          //this.navCtrl.setRoot(RoomChatPage);
         }
       }, (error) => {
         console.log(error.status);
