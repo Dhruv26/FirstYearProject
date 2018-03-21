@@ -9,7 +9,7 @@ page-sign-up {
     width:100%;
     background-color: #002a3e;
 }
-      
+
 .flb {
     background-color: #3ebffb;
     height:100%;
@@ -42,6 +42,8 @@ page-sign-up {
 ion-card.card{
     background: rgba($color: rgb(232, 230, 230), $alpha: 0.7);
     border-radius: 10px;
+    padding-top: 15px;
+    padding-bottom: 35px;
 }
 .item{
     background: rgba($color: rgb(232, 230, 230), $alpha: 0);

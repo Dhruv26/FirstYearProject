@@ -3,14 +3,8 @@ import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angul
 import { User } from '../../models/User';
 import { Storage } from '@ionic/storage';
 //import { Md5 } from 'ts-md5/dist/md5';
-import { Md5} from 'ts-md5/dist/md5';
-
-/**
- * Generated class for the ProfilePage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { Md5 } from 'ts-md5/dist/md5';
+import { Http, Headers } from '@angular/http';
 
 @IonicPage()
 @Component({
@@ -21,25 +15,32 @@ export class ProfilePage {
 
   user = {} as User;
   url:any  = "../../assets/Default.png";
+  id: string;
   name:string = "Loading...";
   email:string = "Loading...";
   phone:string = "Loading...";
   birthDate:string = "1999-07-17";
   sports:string[] = ["Football"];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private alertCtrl: AlertController,) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private alertCtrl: AlertController, public http: Http) {
   }
 
   ionViewDidLoad() {
-    //let checkURL = this.storage.get('photoUrl') as string;
-    //let checkEmail = this.storage.get('email') as string;
-    /*
-    this.storage.set('name', body.name);
-    this.storage.set('email', body.userName);
-    this.storage.set('phone', body.phoneNumber);
-    this.storage.set('favouriteSports', body.favouriteSports);*/
-
+    this.storage.get('id').then(data => this.id = data);
+    this.storage.get('name').then(data => this.name = data);
+    this.storage.get('email').then(data => this.email = data);
+    this.storage.get('phone').then(data => this.phone = data);
+    this.storage.get('favouriteSports').then(data => this.favouriteSports = data);
+    this.storage.get('birthDate').then(data => this.birthDate = data);
     this.storage.get('photoUrl').then(data => {
+      if(data == null)
+      {
+        this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.email.toString()) + "?s=400");
+      }
+    });
+
+
+    /*this.storage.get('photoUrl').then(data => {
     this.storage.get('email').then(data2 => {
     this.storage.get('name').then(data3 => {
     this.storage.get('phone').then(data4 => {
@@ -53,7 +54,7 @@ export class ProfilePage {
       this.phone = data4
       this.sports = data5;
       this.birthDate = data6
-    
+
     console.log('ionViewDidLoad ProfilePage');
     if (data == null)
     {
@@ -76,26 +77,33 @@ export class ProfilePage {
       this.url = this.storage.get('photoUrl').toString();
     }
   });});});});});});
-  
+*/
   }
-  save(){
-    console.log("Data to be updated");
-    console.log(this.birthDate);
-    console.log(this.sports);
-    this.storage.set('phone', this.phone);
-    this.storage.set('favouriteSports', this.sports);
-    this.storage.set('dateOfBirth', this.birthDate); 
 
-
-    let alert = this.alertCtrl.create({
-      title: 'Settings saved',
-      message: 'The settings were saved successfully',
-      buttons: ['Dismiss']
-    })
-    alert.present();
-  }
   emailChanged(){
     this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.email.toString()));
+  }
+
+  save()
+  {
+    let data = { 'id': this.id, 'phoneNumber': this.phone, 'favouriteSports': this.favouriteSports, 'photoUrl': this.photoUrl, 'birthDate': this.birthDate };
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    this.http.post('api/user', JSON.stringify(data), { headers: headers }).subscribe(response => {
+      if(response.status == 200)
+      {
+        this.storage.set('phone', this.phone);
+        this.storage.set('photoUrl', this.photoUrl);
+        this.storage.set('birthDate', this.birthDate);
+        
+        let alert = this.alertCtrl.create({
+          title: 'Profie updated',
+          message: 'Your profile has been updated successfully',
+          buttons: ['Dismiss']
+        });
+        alert.present();
+      }
+    })
   }
 
 }

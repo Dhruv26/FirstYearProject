@@ -1,51 +1,33 @@
-<!--
-  Generated template for the AdditionalInfoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
-    <ion-navbar>
-      <ion-title>Back to Sign up</ion-title>
-    </ion-navbar>
-  
-  </ion-header>
+  <ion-navbar>
+    <ion-title>Additional information</ion-title>
+  </ion-navbar>
+</ion-header>
 
 <ion-content class = "background" >
-    <h1 class = heading>Meet 'n' Play</h1>
+  <h1 class = smaller-heading>Tell us more about you</h1>
   <ion-card>
-    <ion-card-header>
-      ADDITIONAL INFO
-    </ion-card-header>
     <ion-item>
       <ion-label floating color = "dark">Phone number</ion-label>
       <ion-input type = "tel" [(ngModel)]="user.phone"></ion-input>
     </ion-item>
-      <ion-list>
-          <ion-item>
+    <ion-item>
             <ion-label floating color = "dark">Preferred sports</ion-label>
-            <ion-select [(ngModel)]="sports" multiple="true" >
+            <ion-select [(ngModel)]="user.favouriteSports" multiple="true" >
               <ion-option value="Football" >Football</ion-option>
-              <ion-option value="Basket Ball">Basket Ball</ion-option>
+              <ion-option value="Basketball">Basket Ball</ion-option>
               <ion-option value="Boxing" >Boxing</ion-option>
-              <ion-option value="Tenis">Tenis</ion-option>
-              <ion-option value="NetBall">NetBall</ion-option>
+              <ion-option value="Tennis">Tenis</ion-option>
+              <ion-option value="Netball">NetBall</ion-option>
             </ion-select>
-          </ion-item>
-        </ion-list>
-        <ion-item>
+    </ion-item>
+    <ion-item>
           <ion-label floating color = "dark">Date of birth</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="myDate"></ion-datetime>
-        </ion-item>
-        <!-- Removed in favour of fab button
-        <ion-item>
-          <a ion-button color = "danger" block outline ion-button (click)="signUp()">Sign Up</a>
-        </ion-item>
-      -->
-    
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthDate"></ion-datetime>
+    </ion-item>
+
     <!--Internal ip. For release, use afzalramzan786.hopto.org:3390/ instead of IP-->
-    <img [src] ="url" alt="imgSrc" height="512" width="512">
+    <img [src] ="url" alt="Profile picture">
     <!--<p>{{imgList}}</p>-->
     <!--
     <ion-item>
@@ -66,7 +48,7 @@
     </ion-grid>
   </ion-card>
   <ion-fab bottom right #fab>
-    <button ion-fab>
+    <button ion-fab (click)="update()">
       <ion-icon name = "arrow-dropright"></ion-icon>
     </button>
   </ion-fab>

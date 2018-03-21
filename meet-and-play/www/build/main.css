@@ -34488,10 +34488,17 @@ page-additional-info .heading {
   font-weight: ligher;
 }
 
+page-additional-info .smaller-heading {
+  color: white;
+  font-size: 2.4em;
+  font-family: Gill Sans, 'Gill Sans MT', 'Calibri', 'Tebuchet MS', sans-serif;
+  font-weight: ligher;
+}
+
 page-additional-info img {
   border-radius: 50%;
-  width: auto;
-  height: auto;
+  width: 60%;
+  height: 60%;
   margin-left: auto;
   margin-right: auto;
   size: 100%;
@@ -34958,15 +34965,15 @@ page-login img {
 
 page-profile img {
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   size: 100%;
 }
 
 page-profile ion-card.card {
   background: rgba(232, 230, 230, 0.6);
   border-radius: 10px;
-  height: 87%;
+  height: 50%;
 }
 
 page-profile .item {
@@ -34975,9 +34982,10 @@ page-profile .item {
   font-size: 20px;
 }
 
-page-profile p {
-  font-size: 20px;
+page-profile .headerText {
+  font-size: 1.5em;
   color: white;
+  text-align: left;
 }
 
 page-rooms #custom-overlay {
@@ -35229,6 +35237,8 @@ page-sign-up .scroll-content {
 page-sign-up ion-card.card {
   background: rgba(232, 230, 230, 0.7);
   border-radius: 10px;
+  padding-top: 15px;
+  padding-bottom: 35px;
 }
 
 page-sign-up .item {

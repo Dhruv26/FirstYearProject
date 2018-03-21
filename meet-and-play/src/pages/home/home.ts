@@ -1,9 +1,9 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { CreateRoom } from '../create-room/create-room';
 import { User } from '../../models/User';
 import { Http, Headers } from '@angular/http';
+import {} from '@types/googlemaps';
 
 declare var google: any;
 
@@ -83,7 +83,6 @@ export class HomePage {
 
   createRoom()
   {
-    this.navCtrl.push(CreateRoom);
   }
 
 }

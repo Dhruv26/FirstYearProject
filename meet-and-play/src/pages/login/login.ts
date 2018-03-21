@@ -61,7 +61,6 @@ export class LoginPage {
       if(response.status == 200)
       {
         this.setStorage(JSON.parse(response._body));
-
       }
     });
   }

@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, LoadingController, ToastController } from 'ionic-angular';
 import { User } from '../../models/User';
+import { TabsPage } from '../tabs/tabs';
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { AlertController } from 'ionic-angular';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/map';
@@ -35,7 +36,7 @@ export class AdditionalInfoPage {
   email:string = "Loading...";
   url:any  = "../../assets/imgs/Default.png";
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http, 
+  constructor(public navCtrl: NavController, public navParams: NavParams, private http: Http,
     private transfer: FileTransfer,
     private camera: Camera,
     public loadingCtrl: LoadingController,
@@ -45,6 +46,7 @@ export class AdditionalInfoPage {
   }
 
   ionViewDidLoad() {
+    this.getUserData();
     console.log('ionViewDidLoad AdditionalInfoPage');
     this.imgSrc = "http://192.168.1.67:3390/UserImg/Default.png";
     //"192.168.1.67:3390/UserImg/Default.png"
@@ -61,6 +63,26 @@ export class AdditionalInfoPage {
 
     this.imgList = this.getList();
   }
+
+  getUserData()
+  {
+    this.storage.get('email').then(data => {
+      let url = 'api/user/userByEmail/' + data;
+      this.http.get(url).subscribe(response => {
+        this.setUser(JSON.parse(response._body));
+        console.log(response);
+      }, errors => {
+        console.log(errors);
+      });
+    });
+  }
+
+  setUser(body)
+  {
+    this.storage.set('id', body.id);
+    this.storage.set('name', body.name);
+  }
+
   getList() {
     return new Promise(resolve => {
       this.http.get('http://192.168.1.67:3390/UserImg/?tpl=list').subscribe(data => {
@@ -70,14 +92,14 @@ export class AdditionalInfoPage {
       });
     });
   }
-  
+
   getImage() {
     const options: CameraOptions = {
       quality: 100,
       destinationType: this.camera.DestinationType.FILE_URI,
       sourceType: this.camera.PictureSourceType.PHOTOLIBRARY
     }
-  
+
     this.camera.getPicture(options).then((imageData) => {
       this.imageURI = imageData;
     }, (err) => {
@@ -93,7 +115,7 @@ export class AdditionalInfoPage {
     });
     loader.present();
     const fileTransfer: FileTransferObject = this.transfer.create();
-  
+
     let options: FileUploadOptions = {
       fileKey: 'ionicfile',
       fileName: 'ionicfile',
@@ -101,7 +123,7 @@ export class AdditionalInfoPage {
       mimeType: "image/jpeg",
       headers: {}
     }
-  
+
     fileTransfer.upload(this.imageURI, 'http://192.168.1.67:8080/api/uploadImage', options)
       .then((data) => {
       console.log(data+" Uploaded Successfully");
@@ -114,18 +136,44 @@ export class AdditionalInfoPage {
       this.presentToast(err);
     });
   }
+
   presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
       duration: 3000,
       position: 'bottom'
     });
-  
+
     toast.onDidDismiss(() => {
       console.log('Dismissed toast');
     });
-  
+
     toast.present();
   }
-  
+
+  update()
+  {
+    this.storage.set('phone', this.user.phone);
+    this.storage.set('favouriteSports', this.user.favouriteSports);
+    this.storage.set('birthDate', this.user.birthDate);
+    this.storage.set('photoUrl', this.user.photoUrl);
+
+    this.storage.get('id').then(data => {
+      let url = 'api/user/' + data;
+      let parsedSports = "";
+      if(this.user.favouriteSports != null)
+      {
+        for(let i = 0; i < this.user.favouriteSports.length; i++)
+          parsedSports += this.user.favouriteSports[i] + '|';
+      }
+      let requestData = { 'phone': this.user.phone, 'photoUrl': url, 'birthDate': this.user.birthDate, 'favouriteSports': parsedSports };
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.http.put(url, JSON.stringify(requestData), { headers: headers}).subscribe(response => {
+        this.navCtrl.setRoot(TabsPage);
+      }, error => {
+        console.log(error);
+      });
+    });
+  }
 }
