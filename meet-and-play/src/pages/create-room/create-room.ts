@@ -18,6 +18,11 @@ export class CreateRoomPage {
   lat: any;
   lng: any;
   marker: google.maps.Marker;
+  
+    /**
+   * Set Date and Time to default value in he date/time picker
+   */
+  private dateOfEvent: String= new Date().toISOString(); 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public http: Http) {
   }

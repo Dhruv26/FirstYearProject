@@ -3,7 +3,6 @@
     <ion-navbar>
       <ion-title>Create room</ion-title>
     </ion-navbar>
-
   </ion-header>
 
 
@@ -15,13 +14,35 @@
                   <ion-label floating color = "dark">Sport</ion-label>
                   <ion-select [(ngModel)]="sports" multiple="true" >
                     <ion-option value="Football" >Football</ion-option>
-                    <ion-option value="Basket Ball">Basket Ball</ion-option>
+                    <ion-option value="Basket Ball">Basketball</ion-option>
                     <ion-option value="Boxing" >Boxing</ion-option>
-                    <ion-option value="Tenis">Tenis</ion-option>
-                    <ion-option value="mushrooms">NetBall</ion-option>
+                    <ion-option value="Tenis">Tennis</ion-option>
+                    <ion-option value="mushrooms">Netball</ion-option>
                   </ion-select>
                 </ion-item>
           </ion-list>
+
+          <ion-list>
+              ,<!-- <ion-label floating color = "dark">Date and Time</ion-label>
+              <ion-item>
+                <h1 *ngIf="dateOfEvent">{{dateOfEvent}}</h1>
+              </ion-item> -->
+              <ion-item> 
+                <ion-label floating color = "dark">Start Time</ion-label>
+                <ion-datetime displayFormat="DD MMM, YYYY hh:mm A" pickerFormat="DD MMM, YYYY hh:mm A" [(ngModel)]="dateOfEvent"></ion-datetime>
+              </ion-item>
+              <ion-item>
+                  <ion-label floating color = "dark">End Time</ion-label>
+                  <ion-datetime displayFormat="DD MMM, YYYY hh:mm A" pickerFormat="DD MMM, YYYY hh:mm A" [(ngModel)]="dateOfEvent"></ion-datetime>
+                </ion-item>
+            </ion-list>
+  
+            <ion-item>
+                <ion-label floating color="dark" stacked>Location</ion-label>
+                <ion-input type="address" placeholder=""></ion-input>
+            </ion-item>
+
+            <div #map id="map" style="height:200px;"></div>
 
         <ion-grid>
           <ion-row>
@@ -32,5 +53,4 @@
         </ion-grid>
       </ion-card-content>
     </ion-card>
-    <div #map id="map"></div>
   </ion-content>
