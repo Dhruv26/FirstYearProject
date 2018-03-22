@@ -15,13 +15,6 @@ import { LoginPage } from '../login/login';
 export class ProfilePage {
 
   user = {} as User;
-  url:any  = "../../assets/Default.png";
-  id: string;
-  name:string = "Loading...";
-  email:string = "Loading...";
-  phone:string = "Loading...";
-  birthDate:string = "1999-07-17";
-  sports:string[] = ["Football"];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage,
               private alertCtrl: AlertController, public http: Http, public events: Events) {
@@ -32,81 +25,51 @@ export class ProfilePage {
   }
 
   ionViewDidLoad() {
-    this.storage.get('id').then(data => this.id = data);
-    this.storage.get('name').then(data => this.name = data);
-    this.storage.get('email').then(data => this.email = data);
-    this.storage.get('phone').then(data => this.phone = data);
-    this.storage.get('favouriteSports').then(data => this.sports = data);
-    this.storage.get('birthDate').then(data => this.birthDate = data);
+    this.storage.get('id').then(data => this.user.id = data);
+    this.storage.get('name').then(data => this.user.name = data);
+    this.storage.get('email').then(data => this.user.email = data);
+    this.storage.get('phone').then(data => this.user.phone = data);
+    this.storage.get('favouriteSports').then(data => this.user.favouriteSports = data);
+    this.storage.get('birthDate').then(data => this.user.birthDate = data);
     this.storage.get('photoUrl').then(data => {
-        this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.email.toString()) + "?s=400");
+        this.user.photoUrl = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.user.email.toString()) + "?s=400");
     });
-
-
-    /*this.storage.get('photoUrl').then(data => {
-    this.storage.get('email').then(data2 => {
-    this.storage.get('name').then(data3 => {
-    this.storage.get('phone').then(data4 => {
-    this.storage.get('favouriteSports').then(data5 => {
-
-    //Modify this stub
-    this.storage.get('dateOfBirth').then(data6 => {
-
-      this.email = data2;
-      this.name = data3;
-      this.phone = data4
-      this.sports = data5;
-      this.birthDate = data6
-
-    console.log('ionViewDidLoad ProfilePage');
-    if (data == null)
-    {
-      console.log("No url defined")
-      if (this.email != null)
-      {
-        console.log("email is defined")
-        this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.email.toString()) + "?s=400");
-      }
-      else{
-        console.log("no email is defined");
-        this.url = ("../../assets/imgs/Default.png");
-        this.email=("undefined");
-      }
-    }
-    else
-    {
-      console.log("A photo URL was found");
-      console.log("URL: " + data);
-      this.url = this.storage.get('photoUrl').toString();
-    }
-  });});});});});});
-*/
   }
 
   emailChanged(){
-    this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.email.toString()));
+    this.user.photoUrl = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.user.email.toString()));
   }
 
   save()
   {
-    let data = { 'id': this.id, 'phoneNumber': this.phone, 'favouriteSports': this.sports, 'photoUrl': this.url, 'birthDate': this.birthDate };
-    let headers = new Headers();
-    headers.append('Content-Type', 'application/json');
-    this.http.post('api/user', JSON.stringify(data), { headers: headers }).subscribe(response => {
-      if(response.status == 200)
+    console.log(this.user.favouriteSports);
+    this.storage.get('id').then(data => {
+      let url = 'api/user/' + data;
+      let parsedSports = "";
+      if(this.user.favouriteSports != null)
       {
-        this.storage.set('phone', this.phone);
-        this.storage.set('photoUrl', this.url);
-        this.storage.set('birthDate', this.birthDate);
-
-        let alert = this.alertCtrl.create({
-          title: 'Profie updated',
-          message: 'Your profile has been updated successfully',
-          buttons: ['Dismiss']
-        });
-        alert.present();
+        for(let i = 0; i < this.user.favouriteSports.length; i++)
+          parsedSports += this.user.favouriteSports[i] + '|';
       }
-    })
+      let requestData = { 'phone': this.user.phone, 'photoUrl': this.user.photoUrl, 'birthDate': this.user.birthDate, 'favouriteSports': parsedSports };
+      let headers = new Headers();
+      headers.append('Content-Type', 'application/json');
+      this.http.put(url, JSON.stringify(requestData), { headers: headers}).subscribe(response => {
+        let alert = this.alertCtrl.create({ message: 'You have updated your details successfully' , buttons: ['Ok'] });
+        alert.present();
+        this.storage.set('phone', this.user.phone);
+        this.storage.set('favouriteSports', parsedSports);
+        this.storage.set('birthDate', this.user.birthDate);
+        this.storage.set('photoUrl', this.user.photoUrl);
+      }, error => {
+        console.log(error);
+      });
+    });
+  }
+
+  logout()
+  {
+    this.events.publish('user:logout');
   }
 
 }

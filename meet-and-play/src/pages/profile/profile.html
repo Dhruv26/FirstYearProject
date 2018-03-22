@@ -9,25 +9,25 @@
         <ion-grid>
             <ion-row>
               <ion-col col-4>
-                  <img [src] ="url" alt="Profile picture">
+                  <img [src] ="user.photoUrl" alt="Profile picture">
                 <!--<button ion-button color = "danger" block outline ion-button (click)="save()">Save Settings</button>-->
               </ion-col>
               <ion-col col-8>
-                  <p class="headerText">{{name}}</p>
-                  <p class="headerText">{{email}}</p>
+                  <p class="headerText">{{user.name}}</p>
+                  <p class="headerText">{{user.email}}</p>
               </ion-col>
             </ion-row>
         </ion-grid>
         <ion-item>
             <ion-label stacked color = "dark">Phone number</ion-label>
-            <ion-input type = "tel" [(ngModel)]="phone"></ion-input>
+            <ion-input type = "tel" [(ngModel)]="user.phone"></ion-input>
         </ion-item>
         <ion-list>
           <ion-item>
             <ion-label stacked color = "dark">Preferred sports</ion-label>
-              <ion-select [(ngModel)]="sport" multiple="true" >
+              <ion-select [(ngModel)]="user.favouriteSports" multiple="true" >
                 <ion-option value="Football" >Football</ion-option>
-                <ion-option value="Basket Ball">Basket Ball</ion-option>
+                <ion-option value="Basketball">Basketball</ion-option>
                 <ion-option value="Boxing" >Boxing</ion-option>
                 <ion-option value="Tenis">Tenis</ion-option>
                 <ion-option value="NetBall">NetBall</ion-option>
@@ -36,16 +36,18 @@
         </ion-list>
         <ion-item>
           <ion-label stacked color = "dark">Date of birth</ion-label>
-          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthDate"></ion-datetime>
+          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthDate"></ion-datetime>
         </ion-item>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <button ion-button (click)="logout()" color = "danger" block outline>Log out</button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
       </ion-card-content>
     </ion-card>
 
-    <ion-fab top right #fab>
-      <button ion-fab (click)="logout()">
-        <ion-icon name = "key"></ion-icon>
-      </button>
-    </ion-fab>
 
     <ion-fab bottom right #fab>
       <button ion-fab (click)="save()">
