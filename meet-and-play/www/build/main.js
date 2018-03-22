@@ -448,6 +448,7 @@ var ProfilePage = (function () {
         this.storage.get('email').then(function (data) { return _this.user.email = data; });
         this.storage.get('phone').then(function (data) { return _this.user.phone = data; });
         this.storage.get('favouriteSports').then(function (data) {
+            console.log(data);
             var splitString = data.split("|");
             for (var i = 0; i < splitString.length; i++)
                 _this.sports.push(splitString[i]);

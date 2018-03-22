@@ -15,7 +15,7 @@ import { LoginPage } from '../login/login';
 export class ProfilePage {
 
   user = {} as User;
-  sports: string = [];
+  sports: string[] = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage,
               private alertCtrl: AlertController, public http: Http, public events: Events) {
@@ -27,6 +27,7 @@ export class ProfilePage {
     this.storage.get('email').then(data => this.user.email = data);
     this.storage.get('phone').then(data => this.user.phone = data);
     this.storage.get('favouriteSports').then(data => {
+      console.log(data);
       let splitString = data.split("|");
       for(let i = 0; i < splitString.length; i++)
         this.sports.push(splitString[i]);

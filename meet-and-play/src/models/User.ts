@@ -8,7 +8,7 @@ export interface User{
     confirmPassword: string;  //Used for sign up validation only
 
     //Variables from back end
-    favouriteSports: string;
+    favouriteSports: any;
 
     //Additional info
     phone: string;
