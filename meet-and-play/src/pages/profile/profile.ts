@@ -20,10 +20,6 @@ export class ProfilePage {
               private alertCtrl: AlertController, public http: Http, public events: Events) {
   }
 
-  logout(){
-    this.events.publish('user:logout');
-  }
-
   ionViewDidLoad() {
     this.storage.get('id').then(data => this.user.id = data);
     this.storage.get('name').then(data => this.user.name = data);

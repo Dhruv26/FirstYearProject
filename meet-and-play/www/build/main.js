@@ -440,9 +440,6 @@ var ProfilePage = (function () {
         this.events = events;
         this.user = {};
     }
-    ProfilePage.prototype.logout = function () {
-        this.events.publish('user:logout');
-    };
     ProfilePage.prototype.ionViewDidLoad = function () {
         var _this = this;
         this.storage.get('id').then(function (data) { return _this.user.id = data; });
