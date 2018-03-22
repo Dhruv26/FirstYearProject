@@ -15,6 +15,7 @@ import { LoginPage } from '../login/login';
 export class ProfilePage {
 
   user = {} as User;
+  sports: string = [];
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage,
               private alertCtrl: AlertController, public http: Http, public events: Events) {
@@ -25,7 +26,12 @@ export class ProfilePage {
     this.storage.get('name').then(data => this.user.name = data);
     this.storage.get('email').then(data => this.user.email = data);
     this.storage.get('phone').then(data => this.user.phone = data);
-    this.storage.get('favouriteSports').then(data => this.user.favouriteSports = data);
+    this.storage.get('favouriteSports').then(data => {
+      let splitString = data.split("|");
+      for(let i = 0; i < splitString.length; i++)
+        this.sports.push(splitString[i]);
+      this.user.favouriteSports = this.sports;
+    });
     this.storage.get('birthDate').then(data => this.user.birthDate = data);
     this.storage.get('photoUrl').then(data => {
         this.user.photoUrl = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.user.email.toString()) + "?s=400");

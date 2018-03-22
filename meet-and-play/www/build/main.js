@@ -439,6 +439,7 @@ var ProfilePage = (function () {
         this.http = http;
         this.events = events;
         this.user = {};
+        this.sports = [];
     }
     ProfilePage.prototype.ionViewDidLoad = function () {
         var _this = this;
@@ -446,7 +447,12 @@ var ProfilePage = (function () {
         this.storage.get('name').then(function (data) { return _this.user.name = data; });
         this.storage.get('email').then(function (data) { return _this.user.email = data; });
         this.storage.get('phone').then(function (data) { return _this.user.phone = data; });
-        this.storage.get('favouriteSports').then(function (data) { return _this.user.favouriteSports = data; });
+        this.storage.get('favouriteSports').then(function (data) {
+            var splitString = data.split("|");
+            for (var i = 0; i < splitString.length; i++)
+                _this.sports.push(splitString[i]);
+            _this.user.favouriteSports = _this.sports;
+        });
         this.storage.get('birthDate').then(function (data) { return _this.user.birthDate = data; });
         this.storage.get('photoUrl').then(function (data) {
             _this.user.photoUrl = ("https://www.gravatar.com/avatar/" + __WEBPACK_IMPORTED_MODULE_3_ts_md5_dist_md5__["Md5"].hashStr(_this.user.email.toString()) + "?s=400");
