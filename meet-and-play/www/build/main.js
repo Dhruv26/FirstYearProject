@@ -444,7 +444,6 @@ var ProfilePage = (function () {
         this.phone = "Loading...";
         this.birthDate = "1999-07-17";
         this.sports = ["Football"];
-        this.user = {};
     }
     ProfilePage.prototype.logout = function () {
         this.events.publish('user:logout');
