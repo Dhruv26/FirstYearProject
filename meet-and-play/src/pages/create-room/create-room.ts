@@ -44,15 +44,22 @@ export class CreateRoomPage {
       this.lat = location.latLng.lat();
       this.lng = location.latLng.lng();
       let latLng = new google.maps.LatLng(this.lat, this.lng);
-      this.addMarker(latLng);
+      this.addMarker(latLng, this.mapElement.nativeElement, mapOptions);
     });
   }
 
-  addMarker(location){
+  addMarker(location, nativeElement, mapOptions){
+  this.map = new google.maps.Map(nativeElement, mapOptions);
     this.marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
       position: location
+    });
+  google.maps.event.addListener(this.map, 'click', (location) => {
+      this.lat = location.latLng.lat();
+      this.lng = location.latLng.lng();
+      let latLng = new google.maps.LatLng(this.lat, this.lng);
+      this.addMarker(latLng,nativeElement, mapOptions);
     });
   }
 
