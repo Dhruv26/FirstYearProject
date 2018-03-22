@@ -13,7 +13,6 @@ import { RoomsPage } from '../rooms/rooms';
 import { IonicPage, NavController, Tabs, Events } from 'ionic-angular';
 import { ViewChild} from '@angular/core';
 import { User } from '../../models/User';
-import { CreateRoomPage } from '../create-room/create-room';
 
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';

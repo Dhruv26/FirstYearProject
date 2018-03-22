@@ -14,7 +14,7 @@ export class CreateRoomPage {
 
   @ViewChild('map') mapElement: ElementRef;
   map: any;
-  sports: string;
+  sport: string;
   lat: any;
   lng: any;
   marker: google.maps.Marker;
