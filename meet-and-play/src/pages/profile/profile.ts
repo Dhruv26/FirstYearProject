@@ -22,7 +22,13 @@ export class ProfilePage {
   birthDate:string = "1999-07-17";
   sports:string[] = ["Football"];
 
+  user = {} as User;
+
   constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private alertCtrl: AlertController, public http: Http) {
+  }
+
+  logout(){
+    this.events.publish('user:logout');
   }
 
   ionViewDidLoad() {

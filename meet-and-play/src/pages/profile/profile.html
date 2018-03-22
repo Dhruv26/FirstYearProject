@@ -41,6 +41,12 @@
       </ion-card-content>
     </ion-card>
 
+    <ion-fab top right #fab>
+      <button ion-fab (click)="logout()">
+        <ion-icon name = "key"></ion-icon>
+      </button>
+    </ion-fab>
+
     <ion-fab bottom right #fab>
       <button ion-fab (click)="save()">
         <ion-icon name="sync"></ion-icon>
