@@ -11,7 +11,6 @@ import { ProfilePage } from '../pages/profile/profile';
 import { RoomChatPage } from '../pages/room-chat/room-chat';
 import { RoomInformationPage } from '../pages/room-information/room-information';
 import { RoomsPage } from '../pages/rooms/rooms';
-import { SettingsPage } from '../pages/settings/settings';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 
 import { AdditionalInfoPage } from '../pages/additional-info/additional-info';

@@ -1,4 +1,4 @@
-webpackJsonp([10],{
+webpackJsonp([9],{
 
 /***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
@@ -9,17 +9,17 @@ webpackJsonp([10],{
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__tabs_tabs__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__ = __webpack_require__(263);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_do__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(268);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(269);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__ = __webpack_require__(267);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_camera__ = __webpack_require__(171);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_native_camera__ = __webpack_require__(170);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ts_md5_dist_md5__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9_ts_md5_dist_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_9_ts_md5_dist_md5__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_storage__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -87,8 +87,8 @@ var AdditionalInfoPage = (function () {
         this.storage.get('email').then(function (data) {
             var url = 'api/user/userByEmail/' + data;
             _this.http.get(url).subscribe(function (response) {
-                _this.setUser(JSON.parse(response._body));
-                console.log(response);
+                if (response.status == 200)
+                    _this.setUser(JSON.parse(response._body));
             }, function (errors) {
                 console.log(errors);
             });
@@ -185,7 +185,7 @@ var AdditionalInfoPage = (function () {
     };
     AdditionalInfoPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-additional-info',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/additional-info/additional-info.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Additional information</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class = "background" >\n  <h1 class = smaller-heading>Tell us more about you</h1>\n  <ion-card>\n    <ion-item>\n      <ion-label floating color = "dark">Phone number</ion-label>\n      <ion-input type = "tel" [(ngModel)]="user.phone"></ion-input>\n    </ion-item>\n    <ion-item>\n            <ion-label floating color = "dark">Preferred sports</ion-label>\n            <ion-select [(ngModel)]="user.favouriteSports" multiple="true" >\n              <ion-option value="Football" >Football</ion-option>\n              <ion-option value="Basketball">Basket Ball</ion-option>\n              <ion-option value="Boxing" >Boxing</ion-option>\n              <ion-option value="Tennis">Tenis</ion-option>\n              <ion-option value="Netball">NetBall</ion-option>\n            </ion-select>\n    </ion-item>\n    <ion-item>\n          <ion-label floating color = "dark">Date of birth</ion-label>\n          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthDate"></ion-datetime>\n    </ion-item>\n\n    <!--Internal ip. For release, use afzalramzan786.hopto.org:3390/ instead of IP-->\n    <img [src] ="url" alt="Profile picture">\n    <!--<p>{{imgList}}</p>-->\n    <!--\n    <ion-item>\n      <a ion-button color = "danger" block outline ion-button (click)="uploadFile()">Upload or take picture</a>\n    </ion-item>-->\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <button ion-button color = "danger" block outline\n          ion-button (click)="getImage()">Create profile picture</button>\n        </ion-col>\n        <!--\n        <ion-col col-6>\n          <button ion-button color = "danger" block outline\n           ion-button (click)="uploadFile()" >Upload image</button>\n        </ion-col>-->\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n  <ion-fab bottom right #fab>\n    <button ion-fab (click)="update()">\n      <ion-icon name = "arrow-dropright"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/additional-info/additional-info.html"*/,
+            selector: 'page-additional-info',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/additional-info/additional-info.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Additional information</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class = "background" >\n  <h1 class = smaller-heading>Tell us more about you</h1>\n  <ion-card>\n    <ion-item>\n      <ion-label floating color = "dark">Phone number</ion-label>\n      <ion-input type = "tel" [(ngModel)]="user.phone"></ion-input>\n    </ion-item>\n    <ion-item>\n            <ion-label floating color = "dark">Preferred sports</ion-label>\n            <ion-select [(ngModel)]="user.favouriteSports" multiple="true" >\n              <ion-option value="Football" >Football</ion-option>\n              <ion-option value="Basketball">Basket Ball</ion-option>\n              <ion-option value="Boxing" >Boxing</ion-option>\n              <ion-option value="Tennis">Tenis</ion-option>\n              <ion-option value="Netball">NetBall</ion-option>\n            </ion-select>\n    </ion-item>\n    <ion-item>\n          <ion-label floating color = "dark">Date of birth</ion-label>\n          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="user.birthDate"></ion-datetime>\n    </ion-item>\n\n    <!--Internal ip. For release, use afzalramzan786.hopto.org:3390/ instead of IP-->\n    <img [src] ="url" alt="Profile picture">\n    <!--<p>{{imgList}}</p>-->\n    <!--\n    <ion-item>\n      <a ion-button color = "danger" block outline ion-button (click)="uploadFile()">Upload or take picture</a>\n    </ion-item>-->\n    <ion-grid>\n      <ion-row>\n        <ion-col>\n          <button ion-button color = "danger" block outline\n          ion-button (click)="getImage()">Create profile picture</button>\n        </ion-col>\n        <!--\n        <ion-col col-6>\n          <button ion-button color = "danger" block outline\n           ion-button (click)="uploadFile()" >Upload image</button>\n        </ion-col>-->\n      </ion-row>\n    </ion-grid>\n  </ion-card>\n  <ion-fab bottom right #fab>\n    <button ion-fab (click)="update()">\n      <ion-icon name = "arrow-dropright"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/additional-info/additional-info.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */],
             __WEBPACK_IMPORTED_MODULE_7__ionic_native_file_transfer__["a" /* FileTransfer */],
@@ -212,7 +212,7 @@ var AdditionalInfoPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__sign_up_sign_up__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__tabs_tabs__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__ionic_storage__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ts_md5_dist_md5__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ts_md5_dist_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_ts_md5_dist_md5__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
@@ -308,7 +308,7 @@ var LoginPage = (function () {
     };
     LoginPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-login',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/login/login.html"*/'<!--\n<div id="custom-overlay" [style.display]="splash ? \'flex\': \'none\'">\n  <div class="flb">\n    <div class="Aligner-item Aligner-item--top"></div>\n    <img src="assets/Logo.png" alt = "image">\n    <div class="Aligner-item Aligner-item--bottom"></div>\n  </div>\n</div>\n-->\n<ion-content class = "background" >\n  <h1 class = heading>Meet \'n\' Play</h1>\n  <ion-card>\n    <ion-card-header color = "light">\n      LOGIN\n    </ion-card-header>\n    <ion-card-content>\n        <img [src] ="url" alt="Profile picture" width="100px" height="100px">\n      <ion-list no-lines>\n        <ion-item>\n          <ion-label floating color = "light" >Email</ion-label>\n          <ion-input type = "text" [(ngModel)]="user.email" (change)="emailChanged()"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating color = "light">Password</ion-label>\n          <ion-input type = "password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n        <ion-item>\n     <a ion-button color = "light" block outline ion-button (click)="forgot()">Forgot Password</a>\n        </ion-item>\n      </ion-list>\n      <ion-grid>\n        <ion-row>\n          <ion-col col-6>\n            <button ion-button color = "light" block outline\n            ion-button (click)="signIn()">Sign in</button>\n          </ion-col>\n          <ion-col col-6>\n            <button ion-button color = "light" block outline\n             ion-button (click)="signUp()" >Sign up</button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n      <!--\n      <b>OR</b>\n      <button ion-button color = "light" ion-left block>\n      <ion-icon name = "logo-google"> </ion-icon>\n      <div>Login with google</div>\n      </button> -->\n\n\n<div *ngIf="hideMe">\n\n\n   <div class  = "create User">\n   <div class = "item item-avatar">\n      <h2 *ngIf="hideMe">Creating an account</h2>\n   </div>\n   <div class = "item item-body">\n      Please enter you details below\n <ion-item>\n          <ion-label floating color = "light">Username</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Email</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n\n<ion-list>\n  <ion-item>\n    <ion-label floating color = "light">Sports</ion-label>\n    <ion-select [(ngModel)]="toppings" multiple="true" >\n      <ion-option value="Football" >Football</ion-option>\n      <ion-option value="Basket Ball">Basket Ball</ion-option>\n      <ion-option value="Boxing" >Boxing</ion-option>\n      <ion-option value="Tenis">Tenis</ion-option>\n      <ion-option value="mushrooms">NetBall</ion-option>\n    </ion-select>\n  </ion-item>\n</ion-list>\n<ion-item>\n  <ion-label floating color = "light">Date of birth</ion-label>\n  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>\n</ion-item>\n\n<ion-item>\n          <ion-label floating color = "light">Forename</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Surname</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Password</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Confirm Password</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n<button ion-button color = "light" block outline ion-button (click)="hide()">CREATE ACCOUNT</button>\n</ion-item>\n</div>\n</div>\n\n</div>\n\n<div *ngIf="forgotPass" >\n  <p style = "color: white">Please enter your email address so we can send you a password reset email</p>\n  <ion-item>\n    <ion-label floating color = "light">Enter Email</ion-label>\n    <ion-input type = "text"></ion-input>\n  </ion-item>\n  <button ion-button color = "light" block outline ion-button (click)="forgot()">Send Email</button>\n\n</div>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/login/login.html"*/,
+            selector: 'page-login',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/login/login.html"*/'<!--\n<div id="custom-overlay" [style.display]="splash ? \'flex\': \'none\'">\n  <div class="flb">\n    <div class="Aligner-item Aligner-item--top"></div>\n    <img src="assets/Logo.png" alt = "image">\n    <div class="Aligner-item Aligner-item--bottom"></div>\n  </div>\n</div>\n-->\n<ion-content class = "background" >\n  <h1 class = heading>Meet \'n\' Play</h1>\n  <ion-card>\n    <ion-card-header color = "light">\n      LOGIN\n    </ion-card-header>\n    <ion-card-content>\n        <img [src] ="url" alt="Profile picture" width="100px" height="100px">\n      <ion-list no-lines>\n        <ion-item>\n          <ion-label floating color = "light" >Email</ion-label>\n          <ion-input type = "text" [(ngModel)]="user.email" (change)="emailChanged()"></ion-input>\n        </ion-item>\n        <ion-item>\n          <ion-label floating color = "light">Password</ion-label>\n          <ion-input type = "password" [(ngModel)]="user.password"></ion-input>\n        </ion-item>\n        <ion-item>\n     <a ion-button color = "light" block outline ion-button (click)="forgot()">Forgot Password</a>\n        </ion-item>\n      </ion-list>\n      <ion-grid>\n        <ion-row>\n          <ion-col col-6>\n            <button ion-button color = "light" block outline\n            ion-button (click)="signIn()">Sign in</button>\n          </ion-col>\n          <ion-col col-6>\n            <button ion-button color = "light" block outline\n             ion-button (click)="signUp()" >Sign up</button>\n          </ion-col>\n        </ion-row>\n      </ion-grid>\n      <!--\n      <b>OR</b>\n      <button ion-button color = "light" ion-left block>\n      <ion-icon name = "logo-google"> </ion-icon>\n      <div>Login with google</div>\n      </button> -->\n\n\n<div *ngIf="hideMe">\n\n\n   <div class  = "create User">\n   <div class = "item item-avatar">\n      <h2 *ngIf="hideMe">Creating an account</h2>\n   </div>\n   <div class = "item item-body">\n      Please enter you details below\n <ion-item>\n          <ion-label floating color = "light">Username</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Email</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n\n<ion-list>\n  <ion-item>\n    <ion-label floating color = "light">Sports</ion-label>\n    <ion-select [(ngModel)]="toppings" multiple="true" >\n      <ion-option value="Football" >Football</ion-option>\n      <ion-option value="Basket Ball">Basket Ball</ion-option>\n      <ion-option value="Boxing" >Boxing</ion-option>\n      <ion-option value="Tenis">Tenis</ion-option>\n      <ion-option value="mushrooms">NetBall</ion-option>\n    </ion-select>\n  </ion-item>\n</ion-list>\n<ion-item>\n  <ion-label floating color = "light">Date of birth</ion-label>\n  <ion-datetime displayFormat="MM/DD/YYYY" [(ngModel)]="myDate"></ion-datetime>\n</ion-item>\n\n<ion-item>\n          <ion-label floating color = "light">Forename</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Surname</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Password</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n          <ion-label floating color = "light">Confirm Password</ion-label>\n          <ion-input type = "text"></ion-input>\n        </ion-item>\n<ion-item>\n<button ion-button color = "light" block outline ion-button (click)="hide()">CREATE ACCOUNT</button>\n</ion-item>\n</div>\n</div>\n\n</div>\n\n<div *ngIf="forgotPass" >\n  <p style = "color: white">Please enter your email address so we can send you a password reset email</p>\n  <ion-item>\n    <ion-label floating color = "light">Enter Email</ion-label>\n    <ion-input type = "text"></ion-input>\n  </ion-item>\n  <button ion-button color = "light" block outline ion-button (click)="forgot()">Send Email</button>\n\n</div>\n\n    </ion-card-content>\n\n  </ion-card>\n\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/login/login.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */]])
     ], LoginPage);
@@ -328,7 +328,7 @@ var LoginPage = (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__additional_info_additional_info__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__angular_http__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_storage__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -359,10 +359,10 @@ var SignUpPage = (function () {
         this.user = {};
     }
     SignUpPage.prototype.ionViewDidLoad = function () {
-        this.user.url = "http://192.168.1.67:3390/UserImg/Default.png";
+        // this.user.url = "http://192.168.1.67:3390/UserImg/Default.png";
     };
     SignUpPage.prototype.emailChanged = function () {
-        console.log(this.email);
+        console.log(this.user.email);
     };
     SignUpPage.prototype.signUp = function () {
         var _this = this;
@@ -393,7 +393,7 @@ var SignUpPage = (function () {
     };
     SignUpPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-sign-up',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/sign-up/sign-up.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>Register</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content class = "background" >\n  <h1 class = heading>Sign up</h1>\n  <ion-card>\n    <ion-list no-lines>\n      <ion-item>\n        <ion-label floating color = "dark">Full name</ion-label>\n        <ion-input type = "text" [(ngModel)]="user.name"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating color = "dark">Email</ion-label>\n        <ion-input type = "email" [(ngModel)]="user.email" (change)="emailChanged()"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating color = "dark">Password</ion-label>\n        <ion-input type = "password" [(ngModel)]="user.password"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating color = "dark">Confirm Password</ion-label>\n        <ion-input type = "password" [(ngModel)]="user.confirmPassword"></ion-input>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n  <ion-fab bottom right #fab>\n    <button ion-fab (click)="signUp()">\n      <ion-icon name = "arrow-dropright"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/sign-up/sign-up.html"*/,
+            selector: 'page-sign-up',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/sign-up/sign-up.html"*/'<ion-header>\n    <ion-navbar>\n      <ion-title>Register</ion-title>\n    </ion-navbar>\n</ion-header>\n\n<ion-content class = "background" >\n  <h1 class = heading>Sign up</h1>\n  <ion-card>\n    <ion-list no-lines>\n      <ion-item>\n        <ion-label floating color = "dark">Full name</ion-label>\n        <ion-input type = "text" [(ngModel)]="user.name"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating color = "dark">Email</ion-label>\n        <ion-input type = "email" [(ngModel)]="user.email" (change)="emailChanged()"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating color = "dark">Password</ion-label>\n        <ion-input type = "password" [(ngModel)]="user.password"></ion-input>\n      </ion-item>\n      <ion-item>\n        <ion-label floating color = "dark">Confirm Password</ion-label>\n        <ion-input type = "password" [(ngModel)]="user.confirmPassword"></ion-input>\n      </ion-item>\n    </ion-list>\n  </ion-card>\n  <ion-fab bottom right #fab>\n    <button ion-fab (click)="signUp()">\n      <ion-icon name = "arrow-dropright"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/sign-up/sign-up.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_4__ionic_storage__["b" /* Storage */]])
     ], SignUpPage);
@@ -411,7 +411,7 @@ var SignUpPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ProfilePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ts_md5_dist_md5__ = __webpack_require__(84);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_ts_md5_dist_md5___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_ts_md5_dist_md5__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(27);
@@ -454,9 +454,7 @@ var ProfilePage = (function () {
         this.storage.get('favouriteSports').then(function (data) { return _this.sports = data; });
         this.storage.get('birthDate').then(function (data) { return _this.birthDate = data; });
         this.storage.get('photoUrl').then(function (data) {
-            if (data == null) {
-                _this.url = ("https://www.gravatar.com/avatar/" + __WEBPACK_IMPORTED_MODULE_3_ts_md5_dist_md5__["Md5"].hashStr(_this.email.toString()) + "?s=400");
-            }
+            _this.url = ("https://www.gravatar.com/avatar/" + __WEBPACK_IMPORTED_MODULE_3_ts_md5_dist_md5__["Md5"].hashStr(_this.email.toString()) + "?s=400");
         });
         /*this.storage.get('photoUrl').then(data => {
         this.storage.get('email').then(data2 => {
@@ -510,22 +508,23 @@ var ProfilePage = (function () {
                 _this.storage.set('phone', _this.phone);
                 _this.storage.set('photoUrl', _this.url);
                 _this.storage.set('birthDate', _this.birthDate);
-                var alert_1 = _this.alertCtrl.create({
+                var alert = _this.alertCtrl.create({
                     title: 'Profie updated',
                     message: 'Your profile has been updated successfully',
                     buttons: ['Dismiss']
                 });
-                alert_1.present();
+                alert.present();
             }
         });
     };
     ProfilePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-profile',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/profile/profile.html"*/'<ion-content class = "background" >\n  <h1 class = heading>My profile</h1>\n  <ion-card>\n    <!--<ion-card-header>\n      Statistics\n    </ion-card-header>-->\n    <ion-card-content>\n\n        <ion-grid>\n            <ion-row>\n              <ion-col col-4>\n                  <img [src] ="url" alt="Profile picture">\n                <!--<button ion-button color = "danger" block outline ion-button (click)="save()">Save Settings</button>-->\n              </ion-col>\n              <ion-col col-8>\n                  <p class="headerText">{{name}}</p>\n                  <p class="headerText">{{email}}</p>\n              </ion-col>\n            </ion-row>\n        </ion-grid>\n        <ion-item>\n            <ion-label stacked color = "dark">Phone number</ion-label>\n            <ion-input type = "tel" [(ngModel)]="phone"></ion-input>\n        </ion-item>\n        <ion-list>\n          <ion-item>\n            <ion-label stacked color = "dark">Preferred sports</ion-label>\n              <ion-select [(ngModel)]="sports" multiple="true" >\n                <ion-option value="Football" >Football</ion-option>\n                <ion-option value="Basket Ball">Basket Ball</ion-option>\n                <ion-option value="Boxing" >Boxing</ion-option>\n                <ion-option value="Tenis">Tenis</ion-option>\n                <ion-option value="NetBall">NetBall</ion-option>\n            </ion-select>\n          </ion-item>\n        </ion-list>\n        <ion-item>\n          <ion-label stacked color = "dark">Date of birth</ion-label>\n          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthDate"></ion-datetime>\n        </ion-item>\n      </ion-card-content>\n    </ion-card>\n\n    <ion-fab bottom right #fab>\n      <button ion-fab (click)="save()">\n        <ion-icon name="sync"></ion-icon>\n      </button>\n    </ion-fab>\n\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/profile/profile.html"*/,
+            selector: 'page-profile',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/profile/profile.html"*/'<ion-content class = "background" >\n  <h1 class = heading>My profile</h1>\n  <ion-card>\n    <!--<ion-card-header>\n      Statistics\n    </ion-card-header>-->\n    <ion-card-content>\n\n        <ion-grid>\n            <ion-row>\n              <ion-col col-4>\n                  <img [src] ="url" alt="Profile picture">\n                <!--<button ion-button color = "danger" block outline ion-button (click)="save()">Save Settings</button>-->\n              </ion-col>\n              <ion-col col-8>\n                  <p class="headerText">{{name}}</p>\n                  <p class="headerText">{{email}}</p>\n              </ion-col>\n            </ion-row>\n        </ion-grid>\n        <ion-item>\n            <ion-label stacked color = "dark">Phone number</ion-label>\n            <ion-input type = "tel" [(ngModel)]="phone"></ion-input>\n        </ion-item>\n        <ion-list>\n          <ion-item>\n            <ion-label stacked color = "dark">Preferred sports</ion-label>\n              <ion-select [(ngModel)]="sports" multiple="true" >\n                <ion-option value="Football" >Football</ion-option>\n                <ion-option value="Basket Ball">Basket Ball</ion-option>\n                <ion-option value="Boxing" >Boxing</ion-option>\n                <ion-option value="Tenis">Tenis</ion-option>\n                <ion-option value="NetBall">NetBall</ion-option>\n            </ion-select>\n          </ion-item>\n        </ion-list>\n        <ion-item>\n          <ion-label stacked color = "dark">Date of birth</ion-label>\n          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthDate"></ion-datetime>\n        </ion-item>\n      </ion-card-content>\n    </ion-card>\n\n    <ion-fab bottom right #fab>\n      <button ion-fab (click)="save()">\n        <ion-icon name="sync"></ion-icon>\n      </button>\n    </ion-fab>\n\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/profile/profile.html"*/,
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _e || Object])
     ], ProfilePage);
     return ProfilePage;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=profile.js.map
@@ -566,7 +565,7 @@ var JoinRoomPage = (function () {
     };
     JoinRoomPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-join-room',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/join-room/join-room.html"*/'<!--\n  Generated template for the JoinRoomPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Back to Rooms</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class = "background" >\n    <h1 class = heading>Join room</h1>\n    <ion-card>\n      <ion-card-header>\n        Search for a room\n      </ion-card-header>\n      <ion-card-content>\n        <ion-list>\n            <ion-item>\n              <strong>Test_Content</strong>\n            </ion-item>\n          </ion-list>\n        <ion-grid>\n          <ion-row>\n            <ion-col>\n              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Join Room</button>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-card-content>\n    </ion-card>\n  </ion-content>\n\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/join-room/join-room.html"*/,
+            selector: 'page-join-room',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/join-room/join-room.html"*/'<!--\n  Generated template for the JoinRoomPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Back to Rooms</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content class = "background" >\n    <h1 class = heading>Join room</h1>\n    <ion-card>\n      <ion-card-header>\n        Search for a room\n      </ion-card-header>\n      <ion-card-content>\n        <ion-list>\n            <ion-item>\n              <strong>Test_Content</strong>\n            </ion-item>\n          </ion-list>\n        <ion-grid>\n          <ion-row>\n            <ion-col>\n              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Join Room</button>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-card-content>\n    </ion-card>\n  </ion-content>\n\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/join-room/join-room.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], JoinRoomPage);
@@ -641,7 +640,7 @@ var CreateRoomPage = (function () {
     ], CreateRoomPage.prototype, "mapElement", void 0);
     CreateRoomPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-create-room',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/create-room/create-room.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Create room</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content class = "background" >\n    <ion-card>\n      <ion-card-content>\n          <ion-list>\n              <ion-item>\n                  <ion-label floating color = "dark">Sport</ion-label>\n                  <ion-select [(ngModel)]="sports" multiple="false">\n                    <ion-option value="Football" >Football</ion-option>\n                    <ion-option value="Basket Ball">Basketball</ion-option>\n                    <ion-option value="Boxing" >Boxing</ion-option>\n                    <ion-option value="Tenis">Tennis</ion-option>\n                    <ion-option value="mushrooms">Netball</ion-option>\n                  </ion-select>\n                </ion-item>\n          </ion-list>\n\n          <ion-list>\n              <!-- <ion-label floating color = "dark">Date and Time</ion-label>\n              <ion-item>\n                <h1 *ngIf="dateOfEvent">{{dateOfEvent}}</h1>\n              </ion-item> -->\n              <ion-item> \n                <ion-label floating color = "dark">Start Time</ion-label>\n                <ion-datetime displayFormat="DD MMM, YYYY hh:mm A" pickerFormat="DD MMM, YYYY hh:mm A" [(ngModel)]="dateOfEvent"></ion-datetime>\n              </ion-item>\n              <ion-item>\n                  <ion-label floating color = "dark">End Time</ion-label>\n                  <ion-datetime displayFormat="DD MMM, YYYY hh:mm A" pickerFormat="DD MMM, YYYY hh:mm A" [(ngModel)]="dateOfEvent"></ion-datetime>\n                </ion-item>\n            </ion-list>\n  \n            <ion-item>\n                <ion-label floating color="dark" stacked>Location</ion-label>\n                <ion-input type="address" placeholder=""></ion-input>\n            </ion-item>\n\n            <div #map id="map" style="height:200px;"></div>\n\n        <ion-grid>\n          <ion-row>\n            <ion-col>\n              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Create Room</button>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-card-content>\n    </ion-card>\n  </ion-content>'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/create-room/create-room.html"*/,
+            selector: 'page-create-room',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/create-room/create-room.html"*/'<ion-header>\n\n    <ion-navbar>\n      <ion-title>Create room</ion-title>\n    </ion-navbar>\n  </ion-header>\n\n\n<ion-content class = "background" >\n    <ion-card>\n      <ion-card-content>\n          <ion-list>\n              <ion-item>\n                  <ion-label floating color = "dark">Sport</ion-label>\n                  <ion-select [(ngModel)]="sports" multiple="false">\n                    <ion-option value="Football" >Football</ion-option>\n                    <ion-option value="Basket Ball">Basketball</ion-option>\n                    <ion-option value="Boxing" >Boxing</ion-option>\n                    <ion-option value="Tenis">Tennis</ion-option>\n                    <ion-option value="mushrooms">Netball</ion-option>\n                  </ion-select>\n                </ion-item>\n          </ion-list>\n\n          <ion-list>\n              <!-- <ion-label floating color = "dark">Date and Time</ion-label>\n              <ion-item>\n                <h1 *ngIf="dateOfEvent">{{dateOfEvent}}</h1>\n              </ion-item> -->\n              <ion-item> \n                <ion-label floating color = "dark">Start Time</ion-label>\n                <ion-datetime displayFormat="DD MMM, YYYY hh:mm A" pickerFormat="DD MMM, YYYY hh:mm A" [(ngModel)]="dateOfEvent"></ion-datetime>\n              </ion-item>\n              <ion-item>\n                  <ion-label floating color = "dark">End Time</ion-label>\n                  <ion-datetime displayFormat="DD MMM, YYYY hh:mm A" pickerFormat="DD MMM, YYYY hh:mm A" [(ngModel)]="dateOfEvent"></ion-datetime>\n                </ion-item>\n            </ion-list>\n  \n            <ion-item>\n                <ion-label floating color="dark" stacked>Location</ion-label>\n                <ion-input type="address" placeholder=""></ion-input>\n            </ion-item>\n\n            <div #map id="map" style="height:200px;"></div>\n\n        <ion-grid>\n          <ion-row>\n            <ion-col>\n              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Create Room</button>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-card-content>\n    </ion-card>\n  </ion-content>'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/create-room/create-room.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], CreateRoomPage);
@@ -659,9 +658,7 @@ var CreateRoomPage = (function () {
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RoomChatPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_interfaces__ = __webpack_require__(264);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_interfaces___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_interfaces__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__rooms_rooms__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rooms_rooms__ = __webpack_require__(56);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -671,7 +668,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -709,7 +705,7 @@ var RoomChatPage = (function () {
         this.scrollToBottom();
     };
     RoomChatPage.prototype.back = function () {
-        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_3__rooms_rooms__["a" /* RoomsPage */]);
+        this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__rooms_rooms__["a" /* RoomsPage */]);
     };
     RoomChatPage.prototype.send = function () {
         //Below is send function hard coded
@@ -726,89 +722,22 @@ var RoomChatPage = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(scroll),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_interfaces__["Content"] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2_ionic_angular_navigation_nav_interfaces__["Content"]) === "function" && _a || Object)
+        __metadata("design:type", Object)
     ], RoomChatPage.prototype, "content", void 0);
     RoomChatPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-room-chat',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/room-chat/room-chat.html"*/'<ion-content class = "background" >\n  <h1 class = heading>Chat: {{roomName}}</h1>\n  <ion-card class = messaging>\n    <!--<ion-card-header>\n      Statistics\n    </ion-card-header>-->\n    <ion-card-content #scroll>\n      <ion-scroll scrollbar-y="true" scrollY="true" style="height:65vh">\n      <ion-list>\n          <ion-item *ngFor="let message of messages.slice().reverse()" text-wrap no-lines>\n              <!-- <strong></strong>-->\n              <div class = "user">\n                <img [src] ="message.url" alt="Profile picture">\n              </div>\n              <div class = "messageContent">{{message.content}}</div>\n              <div class = "name">{{message.name}}:</div>\n              \n              <!--<button ion-button large (click)="joinSuggestion(suggestion.id)" color = "danger" full> {{suggestion.info}} </button>-->\n          </ion-item>\n      </ion-list>\n    </ion-scroll>\n    </ion-card-content>\n  </ion-card>\n  <ion-card class = message>\n    <ion-card-content>\n        <ion-item>\n            <ion-label stacked color = "dark"></ion-label>\n            <ion-input type = "text" [(ngModel)]="newMessage" maxlength = "50"></ion-input>\n            <button ion-fab mini (click)="send()" item-right>\n              <ion-icon name="send"></ion-icon>\n            </button>\n        </ion-item>\n    </ion-card-content>\n  </ion-card>\n  <ion-fab bottom left #fab>\n    <button ion-fab (click)="back()">\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/room-chat/room-chat.html"*/,
+            selector: 'page-room-chat',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/room-chat/room-chat.html"*/'<ion-content class = "background" >\n  <h1 class = heading>Chat: {{roomName}}</h1>\n  <ion-card class = messaging>\n    <!--<ion-card-header>\n      Statistics\n    </ion-card-header>-->\n    <ion-card-content #scroll>\n      <ion-scroll scrollbar-y="true" scrollY="true" style="height:65vh">\n      <ion-list>\n          <ion-item *ngFor="let message of messages.slice().reverse()" text-wrap no-lines>\n              <!-- <strong></strong>-->\n              <div class = "user">\n                <img [src] ="message.url" alt="Profile picture">\n              </div>\n              <div class = "messageContent">{{message.content}}</div>\n              <div class = "name">{{message.name}}:</div>\n              \n              <!--<button ion-button large (click)="joinSuggestion(suggestion.id)" color = "danger" full> {{suggestion.info}} </button>-->\n          </ion-item>\n      </ion-list>\n    </ion-scroll>\n    </ion-card-content>\n  </ion-card>\n  <ion-card class = message>\n    <ion-card-content>\n        <ion-item>\n            <ion-label stacked color = "dark"></ion-label>\n            <ion-input type = "text" [(ngModel)]="newMessage" maxlength = "50"></ion-input>\n            <button ion-fab mini (click)="send()" item-right>\n              <ion-icon name="send"></ion-icon>\n            </button>\n        </ion-item>\n    </ion-card-content>\n  </ion-card>\n  <ion-fab bottom left #fab>\n    <button ion-fab (click)="back()">\n      <ion-icon name="arrow-back"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/room-chat/room-chat.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], RoomChatPage);
     return RoomChatPage;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=room-chat.js.map
 
 /***/ }),
 
-/***/ 114:
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SettingsPage; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(31);
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-
-
-
-/**
- * Generated class for the SettingsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
-var SettingsPage = (function () {
-    function SettingsPage(navCtrl, navParams, alertCtrl, storage, events) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
-        this.alertCtrl = alertCtrl;
-        this.storage = storage;
-        this.events = events;
-        this.user = {};
-    }
-    SettingsPage.prototype.logout = function () {
-        this.events.publish('user:logout');
-    };
-    SettingsPage.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad SettingsPage');
-        this.user.allowNotifications = true;
-        this.user.showLocation = false;
-        this.user.nameVisible = true;
-        this.user.performanceRatings = false;
-    };
-    SettingsPage.prototype.save = function () {
-        var alert = this.alertCtrl.create({
-            title: 'Settings saved',
-            message: 'The settings were saved successfully',
-            buttons: ['Dismiss']
-        });
-        alert.present();
-    };
-    SettingsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-settings',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/settings/settings.html"*/'<!--\n  Generated template for the SettingsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Settings</ion-title>\n  </ion-navbar>\n\n</ion-header>\n-->\n\n<ion-content class = "background" >\n    <h1 class = heading>Settings</h1>\n    <ion-card>\n      <ion-card-header>\n        Choose an option\n      </ion-card-header>\n      <ion-card-content>\n        <ion-list>\n            <ion-item>\n                <ion-label><strong>Allow notifications</strong></ion-label>\n                <ion-toggle [(ngModel)]="user.allowNotifications" ng-checked="user.allowNotifications"></ion-toggle>\n            </ion-item>\n            <ion-item>\n                <ion-label><strong>Allow other users to see my name</strong></ion-label>\n                <ion-toggle [(ngModel)]="user.nameVisible" ng-checked="user.nameVisible"></ion-toggle>\n            </ion-item>\n            <ion-item>\n                <ion-label><strong>Allow location sharing</strong></ion-label>\n                <ion-toggle [(ngModel)]="user.showLocation" checked="user.showLocation"></ion-toggle>\n            </ion-item>\n            <ion-item>\n                <ion-label><strong>Allow users to rate my performance</strong></ion-label>\n                <ion-toggle [(ngModel)]="user.performanceRatings" checked="user.performanceRatings"></ion-toggle>\n            </ion-item>\n            <ion-item>\n                <ion-label><strong>Enhance the contrast of the application</strong></ion-label>\n                <ion-toggle [(ngModel)]="user.enhancedContrast" disabled="true"></ion-toggle>\n            </ion-item>      \n          </ion-list>\n          <ion-grid>\n          <ion-row>\n            <ion-col col-12>\n              <button ion-button color = "danger" block outline ion-button (click)="save()">Save Settings</button>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n      </ion-card-content>\n    </ion-card>\n    <ion-fab top right #fab>\n        <button ion-fab (click)="logout()">\n          <ion-icon name = "key"></ion-icon>\n        </button>\n      </ion-fab>\n  </ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/settings/settings.html"*/,
-        }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */], __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
-    ], SettingsPage);
-    return SettingsPage;
-}());
-
-//# sourceMappingURL=settings.js.map
-
-/***/ }),
-
-/***/ 126:
+/***/ 125:
 /***/ (function(module, exports) {
 
 function webpackEmptyAsyncContext(req) {
@@ -821,52 +750,48 @@ function webpackEmptyAsyncContext(req) {
 webpackEmptyAsyncContext.keys = function() { return []; };
 webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
 module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 126;
+webpackEmptyAsyncContext.id = 125;
 
 /***/ }),
 
-/***/ 167:
+/***/ 166:
 /***/ (function(module, exports, __webpack_require__) {
 
 var map = {
 	"../pages/additional-info/additional-info.module": [
-		308,
-		9
-	],
-	"../pages/create-room/create-room.module": [
-		309,
+		306,
 		8
 	],
-	"../pages/join-room/join-room.module": [
-		310,
+	"../pages/create-room/create-room.module": [
+		307,
 		7
 	],
-	"../pages/login/login.module": [
-		311,
+	"../pages/join-room/join-room.module": [
+		308,
 		6
 	],
-	"../pages/profile/profile.module": [
-		312,
+	"../pages/login/login.module": [
+		309,
 		5
 	],
-	"../pages/room-chat/room-chat.module": [
-		313,
+	"../pages/profile/profile.module": [
+		310,
 		4
 	],
-	"../pages/room-information/room-information.module": [
-		314,
+	"../pages/room-chat/room-chat.module": [
+		311,
 		3
 	],
-	"../pages/rooms/rooms.module": [
-		315,
+	"../pages/room-information/room-information.module": [
+		312,
 		2
 	],
-	"../pages/settings/settings.module": [
-		316,
+	"../pages/rooms/rooms.module": [
+		313,
 		1
 	],
 	"../pages/sign-up/sign-up.module": [
-		317,
+		314,
 		0
 	]
 };
@@ -881,12 +806,12 @@ function webpackAsyncContext(req) {
 webpackAsyncContext.keys = function webpackAsyncContextKeys() {
 	return Object.keys(map);
 };
-webpackAsyncContext.id = 167;
+webpackAsyncContext.id = 166;
 module.exports = webpackAsyncContext;
 
 /***/ }),
 
-/***/ 168:
+/***/ 167:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -970,7 +895,7 @@ var HomePage = (function () {
     ], HomePage.prototype, "mapElement", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-home',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Find your next game</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div #map id="map"></div>\n  <ion-fab bottom left #fab>\n    <button ion-fab (click)="createRoom()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/home/home.html"*/
+            selector: 'page-home',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Find your next game</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div #map id="map"></div>\n  <ion-fab bottom left #fab>\n    <button ion-fab (click)="createRoom()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/home/home.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]])
     ], HomePage);
@@ -981,7 +906,7 @@ var HomePage = (function () {
 
 /***/ }),
 
-/***/ 213:
+/***/ 212:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1015,7 +940,7 @@ var RoomInformationPage = (function () {
     };
     RoomInformationPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-room-information',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/room-information/room-information.html"*/'<!--\n  Generated template for the RoomInformationPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Room information</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/room-information/room-information.html"*/,
+            selector: 'page-room-information',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/room-information/room-information.html"*/'<!--\n  Generated template for the RoomInformationPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Room information</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/room-information/room-information.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]])
     ], RoomInformationPage);
@@ -1026,13 +951,13 @@ var RoomInformationPage = (function () {
 
 /***/ }),
 
-/***/ 214:
+/***/ 213:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(215);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(236);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(214);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(235);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -1040,7 +965,7 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 236:
+/***/ 235:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1048,36 +973,34 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__app_component__ = __webpack_require__(295);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__angular_http__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_about_about__ = __webpack_require__(298);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contact_contact__ = __webpack_require__(299);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__pages_about_about__ = __webpack_require__(296);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__pages_contact_contact__ = __webpack_require__(297);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_home_home__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_tabs_tabs__ = __webpack_require__(51);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_login_login__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_create_room_create_room__ = __webpack_require__(112);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__pages_join_room_join_room__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__pages_profile_profile__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__pages_room_chat_room_chat__ = __webpack_require__(113);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_room_information_room_information__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__pages_room_information_room_information__ = __webpack_require__(212);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__pages_rooms_rooms__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_settings_settings__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_sign_up_sign_up__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__pages_additional_info_additional_info__ = __webpack_require__(107);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_status_bar__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__ionic_native_splash_screen__ = __webpack_require__(212);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__providers_maps_maps__ = __webpack_require__(300);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file_transfer__ = __webpack_require__(169);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_file__ = __webpack_require__(307);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_native_camera__ = __webpack_require__(171);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_25__ionic_storage__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_16__pages_sign_up_sign_up__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__pages_additional_info_additional_info__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__ = __webpack_require__(211);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__providers_maps_maps__ = __webpack_require__(298);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_transfer__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__ = __webpack_require__(305);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_23__ionic_native_camera__ = __webpack_require__(170);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_24__ionic_storage__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
-
 
 
 
@@ -1125,9 +1048,8 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__pages_room_chat_room_chat__["a" /* RoomChatPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_room_information_room_information__["a" /* RoomInformationPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_rooms_rooms__["a" /* RoomsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_settings_settings__["a" /* SettingsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_sign_up_sign_up__["a" /* SignUpPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_additional_info_additional_info__["a" /* AdditionalInfoPage */]
+                __WEBPACK_IMPORTED_MODULE_16__pages_sign_up_sign_up__["a" /* SignUpPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_additional_info_additional_info__["a" /* AdditionalInfoPage */]
             ],
             imports: [
                 __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -1141,12 +1063,11 @@ var AppModule = (function () {
                         { loadChildren: '../pages/room-chat/room-chat.module#RoomChatPageModule', name: 'RoomChatPage', segment: 'room-chat', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/room-information/room-information.module#RoomInformationPageModule', name: 'RoomInformationPage', segment: 'room-information', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/rooms/rooms.module#RoomsPageModule', name: 'RoomsPage', segment: 'rooms', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/settings/settings.module#SettingsPageModule', name: 'SettingsPage', segment: 'settings', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/sign-up/sign-up.module#SignUpPageModule', name: 'SignUpPage', segment: 'sign-up', priority: 'low', defaultHistory: [] }
                     ]
                 }),
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
-                __WEBPACK_IMPORTED_MODULE_25__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
+                __WEBPACK_IMPORTED_MODULE_24__ionic_storage__["a" /* IonicStorageModule */].forRoot(),
             ],
             bootstrap: [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["c" /* IonicApp */]],
             entryComponents: [
@@ -1162,19 +1083,18 @@ var AppModule = (function () {
                 __WEBPACK_IMPORTED_MODULE_13__pages_room_chat_room_chat__["a" /* RoomChatPage */],
                 __WEBPACK_IMPORTED_MODULE_14__pages_room_information_room_information__["a" /* RoomInformationPage */],
                 __WEBPACK_IMPORTED_MODULE_15__pages_rooms_rooms__["a" /* RoomsPage */],
-                __WEBPACK_IMPORTED_MODULE_16__pages_settings_settings__["a" /* SettingsPage */],
-                __WEBPACK_IMPORTED_MODULE_17__pages_sign_up_sign_up__["a" /* SignUpPage */],
-                __WEBPACK_IMPORTED_MODULE_18__pages_additional_info_additional_info__["a" /* AdditionalInfoPage */]
+                __WEBPACK_IMPORTED_MODULE_16__pages_sign_up_sign_up__["a" /* SignUpPage */],
+                __WEBPACK_IMPORTED_MODULE_17__pages_additional_info_additional_info__["a" /* AdditionalInfoPage */]
             ],
             providers: [
-                __WEBPACK_IMPORTED_MODULE_19__ionic_native_status_bar__["a" /* StatusBar */],
-                __WEBPACK_IMPORTED_MODULE_20__ionic_native_splash_screen__["a" /* SplashScreen */],
+                __WEBPACK_IMPORTED_MODULE_18__ionic_native_status_bar__["a" /* StatusBar */],
+                __WEBPACK_IMPORTED_MODULE_19__ionic_native_splash_screen__["a" /* SplashScreen */],
                 { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["u" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["d" /* IonicErrorHandler */] },
-                __WEBPACK_IMPORTED_MODULE_21__providers_maps_maps__["a" /* MapsProvider */],
-                __WEBPACK_IMPORTED_MODULE_22__ionic_native_file_transfer__["a" /* FileTransfer */],
-                __WEBPACK_IMPORTED_MODULE_22__ionic_native_file_transfer__["b" /* FileTransferObject */],
-                __WEBPACK_IMPORTED_MODULE_23__ionic_native_file__["a" /* File */],
-                __WEBPACK_IMPORTED_MODULE_24__ionic_native_camera__["a" /* Camera */],
+                __WEBPACK_IMPORTED_MODULE_20__providers_maps_maps__["a" /* MapsProvider */],
+                __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_transfer__["a" /* FileTransfer */],
+                __WEBPACK_IMPORTED_MODULE_21__ionic_native_file_transfer__["b" /* FileTransferObject */],
+                __WEBPACK_IMPORTED_MODULE_22__ionic_native_file__["a" /* File */],
+                __WEBPACK_IMPORTED_MODULE_23__ionic_native_camera__["a" /* Camera */],
                 __WEBPACK_IMPORTED_MODULE_4__angular_http__["c" /* HttpModule */],
             ]
         })
@@ -1186,15 +1106,15 @@ var AppModule = (function () {
 
 /***/ }),
 
-/***/ 297:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(211);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(212);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(211);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_tabs_tabs__ = __webpack_require__(51);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1221,7 +1141,7 @@ var MyApp = (function () {
         });
     }
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/app/app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);
@@ -1232,7 +1152,7 @@ var MyApp = (function () {
 
 /***/ }),
 
-/***/ 298:
+/***/ 296:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1256,7 +1176,7 @@ var AboutPage = (function () {
     }
     AboutPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-about',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/about/about.html"*/
+            selector: 'page-about',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/about/about.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      About\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/about/about.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
     ], AboutPage);
@@ -1267,7 +1187,7 @@ var AboutPage = (function () {
 
 /***/ }),
 
-/***/ 299:
+/***/ 297:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -1291,7 +1211,7 @@ var ContactPage = (function () {
     }
     ContactPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-contact',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/contact/contact.html"*/
+            selector: 'page-contact',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/contact/contact.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>\n      Contact\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-list>\n    <ion-list-header>Follow us on Twitter</ion-list-header>\n    <ion-item>\n      <ion-icon name="ionic" item-start></ion-icon>\n      @ionicframework\n    </ion-item>\n  </ion-list>\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/contact/contact.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]])
     ], ContactPage);
@@ -1302,12 +1222,12 @@ var ContactPage = (function () {
 
 /***/ }),
 
-/***/ 300:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MapsProvider; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(301);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_common_http__ = __webpack_require__(299);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -1348,14 +1268,13 @@ var MapsProvider = (function () {
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TabsPage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(168);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__home_home__ = __webpack_require__(167);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__login_login__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__profile_profile__ = __webpack_require__(110);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__rooms_rooms__ = __webpack_require__(56);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__settings_settings__ = __webpack_require__(114);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__angular_http__ = __webpack_require__(27);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__ionic_storage__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_ionic_angular__ = __webpack_require__(10);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__angular_http__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__ionic_storage__ = __webpack_require__(33);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -1365,7 +1284,6 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-
 
 
 
@@ -1385,7 +1303,6 @@ var TabsPage = (function () {
         this.tab1 = __WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */];
         this.tab2 = __WEBPACK_IMPORTED_MODULE_4__rooms_rooms__["a" /* RoomsPage */];
         this.tab3 = __WEBPACK_IMPORTED_MODULE_3__profile_profile__["a" /* ProfilePage */];
-        this.tab4 = __WEBPACK_IMPORTED_MODULE_5__settings_settings__["a" /* SettingsPage */];
         setTimeout(function () {
             _this.storage.get('id').then(function (data) {
                 if (data == null)
@@ -1407,17 +1324,17 @@ var TabsPage = (function () {
         this.storage.remove('favouriteSports');
         this.storage.remove('phone');
         this.storage.remove('photoUrl');
-        this.http.post('api/account/logout').subscribe(function (response) { console.log(response); }, function (error) { });
+        this.http.post('api/account/logout', {}, {}).subscribe(function (response) { console.log(response); }, function (error) { });
         this.navCtrl.setRoot(__WEBPACK_IMPORTED_MODULE_2__login_login__["a" /* LoginPage */]);
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('primaryTabs'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["l" /* Tabs */])
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["l" /* Tabs */])
     ], TabsPage.prototype, "primaryTabs", void 0);
     TabsPage = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/tabs/tabs.html"*/'<ion-icon name="tab-home"></ion-icon>\n<ion-tabs name="primaryTabs" tabsLayout="icon-top" tabsPlacement="bottom" #primaryTabs>\n  <ion-tab [root]="tab1" tabTitle="Home" tabIcon="basketball"></ion-tab>\n  <ion-tab [root]="tab2" tabTitle="Rooms" tabIcon="mail" icon-on="home" icon-off="home"></ion-tab>\n  <ion-tab [root]="tab3" tabTitle="Profile" tabIcon="person"></ion-tab>\n  <ion-tab [root]="tab4" tabTitle="Settings" tabIcon="settings"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/tabs/tabs.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/tabs/tabs.html"*/'<ion-icon name="tab-home"></ion-icon>\n<ion-tabs name="primaryTabs" tabsLayout="icon-top" tabsPlacement="bottom" #primaryTabs>\n  <ion-tab [root]="tab1" tabTitle="Home" tabIcon="basketball"></ion-tab>\n  <ion-tab [root]="tab2" tabTitle="Rooms" tabIcon="mail" icon-on="home" icon-off="home"></ion-tab>\n  <ion-tab [root]="tab3" tabTitle="Profile" tabIcon="person"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/tabs/tabs.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_6_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_8__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_6_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_7__angular_http__["b" /* Http */]])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_5_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_5_ionic_angular__["b" /* Events */], __WEBPACK_IMPORTED_MODULE_6__angular_http__["b" /* Http */]])
     ], TabsPage);
     return TabsPage;
 }());
@@ -1521,7 +1438,7 @@ var RoomsPage = (function () {
     };
     RoomsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-rooms',template:/*ion-inline-start:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/rooms/rooms.html"*/'<!--\n  Generated template for the RoomsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Rooms</ion-title>\n  </ion-navbar>\n\n</ion-header>\n-->\n\n<ion-content class = "background" >\n    <h1 class = heading>Rooms</h1>\n    <ion-card>\n      <ion-card-header>\n        Choose an option\n      </ion-card-header>\n      <ion-card-content>\n        <ion-grid>\n          <ion-row>\n            <ion-col col-6>\n              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Create Room</button>\n            </ion-col>\n            <ion-col col-6>\n              <button ion-button (click)="JoinRoom()" color = "danger" block outline>Join Room</button>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n        <!--\n        <ion-list>\n            <ion-item>\n              <strong>Local suggestions: </strong>\n            </ion-item>\n            <ion-item>\n                <strong>Kickboxing, </strong> Sudden community centre\n                <button ion-button color = "danger"> Join </button>\n              </ion-item>\n              <ion-item>\n                  <strong>Football, </strong> Falinge Park \n                  <button ion-button color = "danger"> Join </button>\n              </ion-item>\n              <ion-item>\n                  <strong>Basketball, </strong> Falinge Park\n                  <button ion-button color = "danger"> Join </button>\n              </ion-item>   \n          </ion-list>\n        -->\n          <!--\n          <div *ngFor="let suggestion of suggestions">\n            <strong>{{suggestion.info}}</strong>\n          </div>\n        -->\n\n          <ion-list>\n              <ion-item *ngFor="let suggestion of suggestions">\n                  <!-- <strong></strong>-->\n                  <button ion-button large (click)="joinSuggestion(suggestion.id)" color = "danger" full> {{suggestion.info}} </button>\n                  </ion-item>\n          </ion-list>\n        \n      </ion-card-content>\n    </ion-card>\n    <ion-fab bottom right #fab>\n        <button ion-fab (click)="chat()">\n          <ion-icon name="chatbubbles"></ion-icon>\n        </button>\n      </ion-fab>\n  </ion-content>\n'/*ion-inline-end:"/home/ubuntu/Documents/meet-and-play/meet-and-play/src/pages/rooms/rooms.html"*/,
+            selector: 'page-rooms',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/rooms/rooms.html"*/'<!--\n  Generated template for the RoomsPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n\n<ion-header>\n\n  <ion-navbar>\n    <ion-title>Rooms</ion-title>\n  </ion-navbar>\n\n</ion-header>\n-->\n\n<ion-content class = "background" >\n    <h1 class = heading>Rooms</h1>\n    <ion-card>\n      <ion-card-header>\n        Choose an option\n      </ion-card-header>\n      <ion-card-content>\n        <ion-grid>\n          <ion-row>\n            <ion-col col-6>\n              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Create Room</button>\n            </ion-col>\n            <ion-col col-6>\n              <button ion-button (click)="JoinRoom()" color = "danger" block outline>Join Room</button>\n            </ion-col>\n          </ion-row>\n        </ion-grid>\n        <!--\n        <ion-list>\n            <ion-item>\n              <strong>Local suggestions: </strong>\n            </ion-item>\n            <ion-item>\n                <strong>Kickboxing, </strong> Sudden community centre\n                <button ion-button color = "danger"> Join </button>\n              </ion-item>\n              <ion-item>\n                  <strong>Football, </strong> Falinge Park \n                  <button ion-button color = "danger"> Join </button>\n              </ion-item>\n              <ion-item>\n                  <strong>Basketball, </strong> Falinge Park\n                  <button ion-button color = "danger"> Join </button>\n              </ion-item>   \n          </ion-list>\n        -->\n          <!--\n          <div *ngFor="let suggestion of suggestions">\n            <strong>{{suggestion.info}}</strong>\n          </div>\n        -->\n\n          <ion-list>\n              <ion-item *ngFor="let suggestion of suggestions">\n                  <!-- <strong></strong>-->\n                  <button ion-button large (click)="joinSuggestion(suggestion.id)" color = "danger" full> {{suggestion.info}} </button>\n                  </ion-item>\n          </ion-list>\n        \n      </ion-card-content>\n    </ion-card>\n    <ion-fab bottom right #fab>\n        <button ion-fab (click)="chat()">\n          <ion-icon name="chatbubbles"></ion-icon>\n        </button>\n      </ion-fab>\n  </ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/rooms/rooms.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* PopoverController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */],
             __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
@@ -1533,5 +1450,5 @@ var RoomsPage = (function () {
 
 /***/ })
 
-},[214]);
+},[213]);
 //# sourceMappingURL=main.js.map

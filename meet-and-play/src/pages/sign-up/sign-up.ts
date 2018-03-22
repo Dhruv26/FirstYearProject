@@ -25,11 +25,11 @@ export class SignUpPage {
   }
 
   ionViewDidLoad() {
-    this.user.url = "http://192.168.1.67:3390/UserImg/Default.png";
+    // this.user.url = "http://192.168.1.67:3390/UserImg/Default.png";
   }
 
   emailChanged(){
-    console.log(this.email);
+    console.log(this.user.email);
   }
 
   signUp()

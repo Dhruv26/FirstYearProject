@@ -33,10 +33,7 @@ export class ProfilePage {
     this.storage.get('favouriteSports').then(data => this.sports = data);
     this.storage.get('birthDate').then(data => this.birthDate = data);
     this.storage.get('photoUrl').then(data => {
-      if(data == null)
-      {
         this.url = ("https://www.gravatar.com/avatar/" + Md5.hashStr(this.email.toString()) + "?s=400");
-      }
     });
 
 
@@ -95,7 +92,7 @@ export class ProfilePage {
         this.storage.set('phone', this.phone);
         this.storage.set('photoUrl', this.url);
         this.storage.set('birthDate', this.birthDate);
-        
+
         let alert = this.alertCtrl.create({
           title: 'Profie updated',
           message: 'Your profile has been updated successfully',

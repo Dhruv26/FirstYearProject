@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 315:
+/***/ 312:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoomsPageModule", function() { return RoomsPageModule; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "RoomInformationPageModule", function() { return RoomInformationPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(10);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__rooms__ = __webpack_require__(56);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__room_information__ = __webpack_require__(212);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,23 +18,23 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var RoomsPageModule = (function () {
-    function RoomsPageModule() {
+var RoomInformationPageModule = (function () {
+    function RoomInformationPageModule() {
     }
-    RoomsPageModule = __decorate([
+    RoomInformationPageModule = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
             declarations: [
-                __WEBPACK_IMPORTED_MODULE_2__rooms__["a" /* RoomsPage */],
+                __WEBPACK_IMPORTED_MODULE_2__room_information__["a" /* RoomInformationPage */],
             ],
             imports: [
-                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__rooms__["a" /* RoomsPage */]),
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__room_information__["a" /* RoomInformationPage */]),
             ],
         })
-    ], RoomsPageModule);
-    return RoomsPageModule;
+    ], RoomInformationPageModule);
+    return RoomInformationPageModule;
 }());
 
-//# sourceMappingURL=rooms.module.js.map
+//# sourceMappingURL=room-information.module.js.map
 
 /***/ })
 

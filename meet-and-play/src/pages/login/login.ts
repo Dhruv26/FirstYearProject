@@ -61,7 +61,7 @@ export class LoginPage {
     this.http.get(url).subscribe(response => {
       if(response.status == 200)
       {
-        this.setStorage(JSON.parse(response._body));
+        this.setStorage(JSON.parse((<any>response)._body));
       }
     });
   }

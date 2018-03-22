@@ -10,7 +10,6 @@ import { ProfilePage } from '../profile/profile';
 import { RoomChatPage } from '../room-chat/room-chat';
 import { RoomInformationPage } from '../room-information/room-information';
 import { RoomsPage } from '../rooms/rooms';
-import { SettingsPage } from '../settings/settings';
 import { IonicPage, NavController, Tabs, Events } from 'ionic-angular';
 import { ViewChild} from '@angular/core';
 import { User } from '../../models/User';
@@ -26,7 +25,6 @@ export class TabsPage {
   tab1 = HomePage;
   tab2 = RoomsPage;
   tab3 = ProfilePage;
-  tab4 = SettingsPage;
 
   @ViewChild('primaryTabs') primaryTabs: Tabs;
 
@@ -57,7 +55,7 @@ export class TabsPage {
     this.storage.remove('favouriteSports');
     this.storage.remove('phone');
     this.storage.remove('photoUrl');
-    this.http.post('api/account/logout').subscribe(response => { console.log(response); }, error => {});
+    this.http.post('api/account/logout', {}, {}).subscribe(response => { console.log(response); }, error => {});
     this.navCtrl.setRoot(LoginPage);
   }
 

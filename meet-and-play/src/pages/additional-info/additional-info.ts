@@ -69,8 +69,8 @@ export class AdditionalInfoPage {
     this.storage.get('email').then(data => {
       let url = 'api/user/userByEmail/' + data;
       this.http.get(url).subscribe(response => {
-        this.setUser(JSON.parse(response._body));
-        console.log(response);
+        if(response.status == 200)
+          this.setUser(JSON.parse((<any>response)._body));
       }, errors => {
         console.log(errors);
       });

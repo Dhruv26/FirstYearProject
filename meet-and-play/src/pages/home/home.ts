@@ -64,7 +64,7 @@ export class HomePage {
       .subscribe(response => {
         if(response.status == 200)
         {
-          this.placeMarkers(JSON.parse(response._body));
+          this.placeMarkers(JSON.parse((<any>response)._body));
         }
       }, (error) => {
         console.log(error.status);
