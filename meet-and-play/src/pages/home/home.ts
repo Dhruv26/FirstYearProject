@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Events } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { User } from '../../models/User';
 import { Http, Headers } from '@angular/http';
@@ -17,7 +17,7 @@ export class HomePage {
   map: any;
   user = {} as User;
 
-  constructor(public navCtrl: NavController, public http: Http) {
+  constructor(public navCtrl: NavController, public http: Http, public events: Events) {
   }
 
   ionViewDidLoad() {
@@ -83,6 +83,7 @@ export class HomePage {
 
   createRoom()
   {
+    this.events.publish('user:createRoom');
   }
 
 }
