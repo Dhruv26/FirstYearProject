@@ -431,12 +431,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ProfilePage = (function () {
-    function ProfilePage(navCtrl, navParams, storage, alertCtrl, http) {
+    function ProfilePage(navCtrl, navParams, storage, alertCtrl, http, events) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this.storage = storage;
         this.alertCtrl = alertCtrl;
         this.http = http;
+        this.events = events;
         this.user = {};
         this.url = "../../assets/Default.png";
         this.name = "Loading...";
@@ -524,10 +525,10 @@ var ProfilePage = (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-profile',template:/*ion-inline-start:"C:\Users\ibn_e\meet-and-play\meet-and-play\src\pages\profile\profile.html"*/'<ion-content class = "background" >\n\n  <h1 class = heading>My profile</h1>\n\n  <ion-card>\n\n    <!--<ion-card-header>\n\n      Statistics\n\n    </ion-card-header>-->\n\n    <ion-card-content>\n\n\n\n        <ion-grid>\n\n            <ion-row>\n\n              <ion-col col-4>\n\n                  <img [src] ="url" alt="Profile picture">\n\n                <!--<button ion-button color = "danger" block outline ion-button (click)="save()">Save Settings</button>-->\n\n              </ion-col>\n\n              <ion-col col-8>\n\n                  <p class="headerText">{{name}}</p>\n\n                  <p class="headerText">{{email}}</p>\n\n              </ion-col>\n\n            </ion-row>\n\n        </ion-grid>\n\n        <ion-item>\n\n            <ion-label stacked color = "dark">Phone number</ion-label>\n\n            <ion-input type = "tel" [(ngModel)]="phone"></ion-input>\n\n        </ion-item>\n\n        <ion-list>\n\n          <ion-item>\n\n            <ion-label stacked color = "dark">Preferred sports</ion-label>\n\n              <ion-select [(ngModel)]="sports" multiple="true" >\n\n                <ion-option value="Football" >Football</ion-option>\n\n                <ion-option value="Basket Ball">Basket Ball</ion-option>\n\n                <ion-option value="Boxing" >Boxing</ion-option>\n\n                <ion-option value="Tenis">Tenis</ion-option>\n\n                <ion-option value="NetBall">NetBall</ion-option>\n\n            </ion-select>\n\n          </ion-item>\n\n        </ion-list>\n\n        <ion-item>\n\n          <ion-label stacked color = "dark">Date of birth</ion-label>\n\n          <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="birthDate"></ion-datetime>\n\n        </ion-item>\n\n      </ion-card-content>\n\n    </ion-card>\n\n\n\n    <ion-fab top right #fab>\n\n      <button ion-fab (click)="logout()">\n\n        <ion-icon name = "key"></ion-icon>\n\n      </button>\n\n    </ion-fab>\n\n\n\n    <ion-fab bottom right #fab>\n\n      <button ion-fab (click)="save()">\n\n        <ion-icon name="sync"></ion-icon>\n\n      </button>\n\n    </ion-fab>\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"C:\Users\ibn_e\meet-and-play\meet-and-play\src\pages\profile\profile.html"*/,
         }),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_http__["b" /* Http */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _f || Object])
     ], ProfilePage);
     return ProfilePage;
-    var _a, _b, _c, _d, _e;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 //# sourceMappingURL=profile.js.map

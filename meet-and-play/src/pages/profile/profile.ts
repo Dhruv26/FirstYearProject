@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, AlertController} from 'ionic-angular';
+import { IonicPage, NavController, NavParams, AlertController, Events} from 'ionic-angular';
 import { User } from '../../models/User';
 import { Storage } from '@ionic/storage';
 //import { Md5 } from 'ts-md5/dist/md5';
@@ -23,7 +23,8 @@ export class ProfilePage {
   birthDate:string = "1999-07-17";
   sports:string[] = ["Football"];
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage, private alertCtrl: AlertController, public http: Http) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage,
+              private alertCtrl: AlertController, public http: Http, public events: Events) {
   }
 
   logout(){
