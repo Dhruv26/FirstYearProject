@@ -837,13 +837,13 @@ var HomePage = (function () {
         };
         this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
     };
-    HomePage.prototype.addMarker = function (location) {
+    HomePage.prototype.addMarker = function (location, roomID) {
         var marker = new google.maps.Marker({
             map: this.map,
             animation: google.maps.Animation.DROP,
             position: location
         });
-        var content = "<h4>Information!</h4>";
+        var content = "<ion-grid><ion-row><ion-col><h5>Name: Paul Lether </h5></ion-col><ion-col><p>Time: 19:00</p></ion-col></ion-row></ion-grid>";
         this.addInfoWindow(marker, content);
     };
     HomePage.prototype.addInfoWindow = function (marker, content) {
@@ -871,7 +871,7 @@ var HomePage = (function () {
         for (var i = 0; i < locations.length; i++) {
             console.log(locations[i]);
             var latLng = new google.maps.LatLng(locations[i].venueLat, locations[i].venueLong);
-            this.addMarker(latLng);
+            this.addMarker(latLng, locations[i].roomID);
         }
     };
     HomePage.prototype.createRoom = function () {
@@ -879,15 +879,16 @@ var HomePage = (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('map'),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]) === "function" && _a || Object)
     ], HomePage.prototype, "mapElement", void 0);
     HomePage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
             selector: 'page-home',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/home/home.html"*/'<ion-header>\n  <ion-navbar>\n    <ion-title>Find your next game</ion-title>\n  </ion-navbar>\n</ion-header>\n<ion-content>\n  <div #map id="map"></div>\n  <ion-fab bottom left #fab>\n    <button ion-fab (click)="createRoom()">\n      <ion-icon name="add"></ion-icon>\n    </button>\n  </ion-fab>\n</ion-content>\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/home/home.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["b" /* Http */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["b" /* Events */]) === "function" && _d || Object])
     ], HomePage);
     return HomePage;
+    var _a, _b, _c, _d;
 }());
 
 //# sourceMappingURL=home.js.map
@@ -1299,8 +1300,8 @@ var TabsPage = (function () {
         this.http = http;
         this.tab1 = __WEBPACK_IMPORTED_MODULE_1__home_home__["a" /* HomePage */];
         this.tab2 = __WEBPACK_IMPORTED_MODULE_5__rooms_rooms__["a" /* RoomsPage */];
-        this.tab3 = __WEBPACK_IMPORTED_MODULE_4__profile_profile__["a" /* ProfilePage */];
-        this.tab4 = __WEBPACK_IMPORTED_MODULE_6__notifications_notifications__["a" /* NotificationsPage */];
+        this.tab3 = __WEBPACK_IMPORTED_MODULE_6__notifications_notifications__["a" /* NotificationsPage */];
+        this.tab4 = __WEBPACK_IMPORTED_MODULE_4__profile_profile__["a" /* ProfilePage */];
         setTimeout(function () {
             _this.storage.get('id').then(function (data) {
                 if (data == null)

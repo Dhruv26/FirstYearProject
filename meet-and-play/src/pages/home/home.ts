@@ -35,14 +35,14 @@ export class HomePage {
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
 
-  addMarker(location){
+  addMarker(location, roomID){
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
       position: location
     });
 
-    let content = "<h4>Information!</h4>";
+    let content = "<ion-grid><ion-row><ion-col><h5>Name: Paul Lether </h5></ion-col><ion-col><p>Time: 19:00</p></ion-col></ion-row></ion-grid>";
 
     this.addInfoWindow(marker, content);
   }
@@ -77,7 +77,7 @@ export class HomePage {
     {
       console.log(locations[i]);
       let latLng = new google.maps.LatLng(locations[i].venueLat, locations[i].venueLong);
-      this.addMarker(latLng);
+      this.addMarker(latLng, locations[i].roomID);
     }
   }
 
