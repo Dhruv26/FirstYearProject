@@ -70,10 +70,9 @@ export class RoomPage {
     this.storage.get('id').then(data => {
       let url = 'api/request/existingRequest/' + data + '/' + this.roomId;
       this.http.get(url).subscribe(response => {
-        if(response._body == 'false')
+        if((<any>response)._body == 'false')
         {
           //setTimeout(() => {
-            console.log(response._body);
             this.sendRequest(data);
           //}, 300);
         }

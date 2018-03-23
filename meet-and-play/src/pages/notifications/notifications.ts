@@ -21,12 +21,6 @@ export class NotificationsPage {
   constructor(public navCtrl: NavController, public navParams: NavParams, private alertCtrl: AlertController,public loadingCtrl: LoadingController,
     public toastCtrl: ToastController, public http: Http, public storage: Storage) {
 
-    this.notifications = [
-      {url: this.umair, name: "Umair Tahir", content: "Would like to join your room", senderID: "1", roomID: "1"},
-      {url: this.akbar, name: "Akbar Ramzan", content: "Would like to join your room", senderID: "2", roomID: "1"},
-
-    ];
-    
     this.getNotifications();
   }
 
@@ -35,24 +29,25 @@ export class NotificationsPage {
     console.log('ionViewDidLoad NotificationsPage');
   }
 
-  Accept(notification:any){
-    console.log("Accepted: " + notification);
-
+  Accept(notification:any)
+  {
+    this.updateRequestStatus(notification.requestID, true);
     let index = this.notifications.indexOf(notification);
     if (index > -1){
       this.notifications.splice(index, 1);
     }
-    this.presentToast("Accepted: " + notification.name);
+    this.presentToast("Accepted request");
   }
 
   Reject(notification:any){
-    console.log("Rejected: " +notification);
+    console.log(notification);
+    this.updateRequestStatus(notification.requestID, false);
 
     let index = this.notifications.indexOf(notification);
     if (index > -1){
       this.notifications.splice(index, 1);
     }
-    this.presentToast("Rejected: " + notification.name);
+    this.presentToast("Rejected request");
   }
 
   presentToast(msg) {
@@ -79,6 +74,16 @@ export class NotificationsPage {
       }, error => {
         console.log(error);
       });
+    });
+  }
+
+  updateRequestStatus(requestId, status: bool)
+  {
+    let url = 'api/request/acceptRequest/' + requestId + '/' + status;
+    this.http.post(url, {}, {}).subscribe(response => {
+      console.log(response);
+    }, error => {
+      console.log(error);
     });
   }
 

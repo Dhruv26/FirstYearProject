@@ -5,14 +5,13 @@
       <ion-scroll scrollbar-y="true" scrollY="true" style="height:87vh">
       <ion-list>
           <ion-item *ngFor="let notification of notifications" text-wrap no-lines>
-              <div class = "user">
-                <img [src] ="notification.user?.photoURL" alt="Profile picture">
-              </div>
-              <div class = "notifContent"> I would like to join your room!
+              <div class = "user">  <img [src] ="notification.user?.photoURL" alt="Profile picture">  </div>
+              <div class = "notifContent"> I would like to join your room!</div>
+
+              <div class = "name">{{notification.user?.name}}:
                 <button ion-button (click)="Accept(notification)" color = "balanced">Accept</button>
                 <button class ="Reject" ion-button (click)="Reject(notification)" color = "danger">Reject</button>
               </div>
-              <div class = "name">{{notification.user?.name}}:</div>
             </ion-item>
           <ion-item *ngIf="notifications==0" text-wrap no-lines>
             <strong>

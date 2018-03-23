@@ -670,30 +670,27 @@ var NotificationsPage = (function () {
         //below are variables used for hard coded data
         this.umair = "https://www.gravatar.com/avatar/" + "760edda6c248d22bb197bb31a7ac69e2" + "?s=300";
         this.akbar = "https://www.gravatar.com/avatar/" + "a5bc9bcd7030dea895f8d15d9581b7fd" + "?s=300";
-        this.notifications = [
-            { url: this.umair, name: "Umair Tahir", content: "Would like to join your room", senderID: "1", roomID: "1" },
-            { url: this.akbar, name: "Akbar Ramzan", content: "Would like to join your room", senderID: "2", roomID: "1" },
-        ];
         this.getNotifications();
     }
     NotificationsPage.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad NotificationsPage');
     };
     NotificationsPage.prototype.Accept = function (notification) {
-        console.log("Accepted: " + notification);
+        this.updateRequestStatus(notification.requestID, true);
         var index = this.notifications.indexOf(notification);
         if (index > -1) {
             this.notifications.splice(index, 1);
         }
-        this.presentToast("Accepted: " + notification.name);
+        this.presentToast("Accepted request");
     };
     NotificationsPage.prototype.Reject = function (notification) {
-        console.log("Rejected: " + notification);
+        console.log(notification);
+        this.updateRequestStatus(notification.requestID, false);
         var index = this.notifications.indexOf(notification);
         if (index > -1) {
             this.notifications.splice(index, 1);
         }
-        this.presentToast("Rejected: " + notification.name);
+        this.presentToast("Rejected request");
     };
     NotificationsPage.prototype.presentToast = function (msg) {
         var toast = this.toastCtrl.create({
@@ -718,9 +715,17 @@ var NotificationsPage = (function () {
             });
         });
     };
+    NotificationsPage.prototype.updateRequestStatus = function (requestId, status) {
+        var url = 'api/request/acceptRequest/' + requestId + '/' + status;
+        this.http.post(url, {}, {}).subscribe(function (response) {
+            console.log(response);
+        }, function (error) {
+            console.log(error);
+        });
+    };
     NotificationsPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-notifications',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/notifications/notifications.html"*/'<ion-content class = "background" >\n  <h1 class = heading>Notifications</h1>\n  <ion-card>\n    <ion-card-content #scroll>\n      <ion-scroll scrollbar-y="true" scrollY="true" style="height:87vh">\n      <ion-list>\n          <ion-item *ngFor="let notification of notifications" text-wrap no-lines>\n              <div class = "user">\n                <img [src] ="notification.user?.photoURL" alt="Profile picture">\n              </div>\n              <div class = "notifContent"> I would like to join your room!\n                <button ion-button (click)="Accept(notification)" color = "balanced">Accept</button>\n                <button class ="Reject" ion-button (click)="Reject(notification)" color = "danger">Reject</button>\n              </div>\n              <div class = "name">{{notification.user?.name}}:</div>\n            </ion-item>\n          <ion-item *ngIf="notifications==0" text-wrap no-lines>\n            <strong>\n              <h1>No notifications to show</h1>\n            </strong>\n          </ion-item>\n      </ion-list>\n    </ion-scroll>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>\n<!-- .slice().reverse() -->\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/notifications/notifications.html"*/,
+            selector: 'page-notifications',template:/*ion-inline-start:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/notifications/notifications.html"*/'<ion-content class = "background" >\n  <h1 class = heading>Notifications</h1>\n  <ion-card>\n    <ion-card-content #scroll>\n      <ion-scroll scrollbar-y="true" scrollY="true" style="height:87vh">\n      <ion-list>\n          <ion-item *ngFor="let notification of notifications" text-wrap no-lines>\n              <div class = "user">  <img [src] ="notification.user?.photoURL" alt="Profile picture">  </div>\n              <div class = "notifContent"> I would like to join your room!</div>\n\n              <div class = "name">{{notification.user?.name}}:\n                <button ion-button (click)="Accept(notification)" color = "balanced">Accept</button>\n                <button class ="Reject" ion-button (click)="Reject(notification)" color = "danger">Reject</button>\n              </div>\n            </ion-item>\n          <ion-item *ngIf="notifications==0" text-wrap no-lines>\n            <strong>\n              <h1>No notifications to show</h1>\n            </strong>\n          </ion-item>\n      </ion-list>\n    </ion-scroll>\n    </ion-card-content>\n  </ion-card>\n\n</ion-content>\n<!-- .slice().reverse() -->\n'/*ion-inline-end:"/home/chiri/Documents/meetfront/meet-and-play/meet-and-play/src/pages/notifications/notifications.html"*/,
         }),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* LoadingController */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["m" /* ToastController */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_http__["b" /* Http */]) === "function" && _f || Object, typeof (_g = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _g || Object])
     ], NotificationsPage);
@@ -805,7 +810,6 @@ var RoomPage = (function () {
             _this.http.get(url).subscribe(function (response) {
                 if (response._body == 'false') {
                     //setTimeout(() => {
-                    console.log(response._body);
                     _this.sendRequest(data);
                     //}, 300);
                 }
