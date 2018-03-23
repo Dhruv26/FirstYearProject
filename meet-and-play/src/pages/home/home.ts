@@ -4,12 +4,14 @@ import { LoginPage } from '../login/login';
 import { User } from '../../models/User';
 import { Http, Headers } from '@angular/http';
 import {} from '@types/googlemaps';
+import { AlertController } from 'ionic-angular';
 
 declare var google: any;
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  alertCtrl: AlertController
 })
 export class HomePage {
 
@@ -17,7 +19,7 @@ export class HomePage {
   map: any;
   user = {} as User;
 
-  constructor(public navCtrl: NavController, public http: Http, public events: Events) {
+  constructor(public navCtrl: NavController, public http: Http, public events: Events, public alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {
@@ -42,9 +44,9 @@ export class HomePage {
       position: location
     });
 
-    let content = "<ion-grid><ion-row><ion-col><h5>Name: Paul Lether </h5></ion-col><ion-col><p>Time: 19:00</p></ion-col></ion-row></ion-grid>";
-
-    this.addInfoWindow(marker, content);
+    google.maps.event.addListener(marker, 'click', () => {
+      this.events.publish('user:roomPage', roomID)
+    });
   }
 
   addInfoWindow(marker, content){
@@ -70,6 +72,7 @@ export class HomePage {
         console.log(error.status);
       });
   }
+
 
   placeMarkers(locations)
   {

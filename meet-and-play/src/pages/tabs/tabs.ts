@@ -14,6 +14,7 @@ import { NotificationsPage } from '../notifications/notifications';
 import { IonicPage, NavController, Tabs, Events } from 'ionic-angular';
 import { ViewChild} from '@angular/core';
 import { User } from '../../models/User';
+import { RoomPage } from '../room/room';
 
 import { Http, Headers } from '@angular/http';
 import { Storage } from '@ionic/storage';
@@ -45,6 +46,10 @@ export class TabsPage {
 
     events.subscribe('user:createRoom', () => {
       this.navCtrl.push(CreateRoomPage);
+    });
+
+    events.subscribe('user:roomPage', (roomID) => {
+      this.navCtrl.push(RoomPage, { id: roomID });
     });
   }
 
