@@ -4,14 +4,12 @@ import { LoginPage } from '../login/login';
 import { User } from '../../models/User';
 import { Http, Headers } from '@angular/http';
 import {} from '@types/googlemaps';
-import { AlertController } from 'ionic-angular';
 
 declare var google: any;
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html',
-  alertCtrl: AlertController
+  templateUrl: 'home.html'
 })
 export class HomePage {
 
@@ -19,12 +17,14 @@ export class HomePage {
   map: any;
   user = {} as User;
 
-  constructor(public navCtrl: NavController, public http: Http, public events: Events, public alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public http: Http, public events: Events) {
   }
 
   ionViewDidLoad() {
-    this.showMap();
-    this.getRoomsLocations();
+    setTimeout(() => {
+      this.showMap();
+      this.getRoomsLocations();
+    }, 300);
   }
 
   showMap(){
@@ -37,7 +37,7 @@ export class HomePage {
     this.map = new google.maps.Map(this.mapElement.nativeElement, mapOptions);
   }
 
-  addMarker(location, roomID){
+  addMarker(location, roomID, sport, time, lat, long){
     let marker = new google.maps.Marker({
       map: this.map,
       animation: google.maps.Animation.DROP,
@@ -45,7 +45,7 @@ export class HomePage {
     });
 
     google.maps.event.addListener(marker, 'click', () => {
-      this.events.publish('user:roomPage', roomID)
+      this.events.publish('user:roomPage', roomID, sport, time, lat, long);
     });
   }
 
@@ -78,9 +78,8 @@ export class HomePage {
   {
     for(let i = 0; i < locations.length; i++)
     {
-      console.log(locations[i]);
       let latLng = new google.maps.LatLng(locations[i].venueLat, locations[i].venueLong);
-      this.addMarker(latLng, locations[i].roomID);
+      this.addMarker(latLng, locations[i].roomID, locations[i].sport, locations[i].time, locations[i].venueLat, locations[i].venueLong);
     }
   }
 

@@ -35076,6 +35076,89 @@ page-profile .headerText {
   text-align: left;
 }
 
+page-room .headerText {
+  font-size: 1.4em;
+  color: white;
+  text-align: center;
+}
+
+page-room .userText {
+  font-size: 1.3em;
+  color: white;
+  text-align: left;
+  padding-left: 25px;
+}
+
+page-room ion-card.card {
+  background: rgba(232, 230, 230, 0.6);
+  border-radius: 10px;
+  height: 87%;
+}
+
+page-room ion-card.card.notification {
+  background: rgba(232, 230, 230, 0.6);
+  border-radius: 10px;
+  height: 10%;
+}
+
+page-room .userimg {
+  border-radius: 50%;
+  width: 15%;
+  height: 15%;
+  size: 15%;
+}
+
+page-room .notifContent {
+  position: absolute;
+  left: 20%;
+  top: 45%;
+  color: black;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+page-room .user {
+  position: static;
+  left: -10px;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+page-room .name {
+  position: absolute;
+  left: 20%;
+  top: 20%;
+  color: black;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+page-room ion-scroll {
+  height: 700px;
+}
+
+page-room .Accept {
+  position: relative;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
+page-room .Reject {
+  position: relative;
+  -webkit-animation-name: fadeIn;
+  animation-name: fadeIn;
+  -webkit-animation-duration: 2s;
+  animation-duration: 2s;
+}
+
 page-room-chat ion-card.card.messaging {
   background: rgba(232, 230, 230, 0.6);
   border-radius: 10px;

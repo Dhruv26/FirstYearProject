@@ -26,8 +26,8 @@ export class TabsPage {
 
   tab1 = HomePage;
   tab2 = RoomsPage;
-  tab3 = NotificationsPage;
-  tab4 = ProfilePage;
+  tab3 = ProfilePage;
+  tab4 = NotificationsPage;
 
   @ViewChild('primaryTabs') primaryTabs: Tabs;
 
@@ -48,8 +48,8 @@ export class TabsPage {
       this.navCtrl.push(CreateRoomPage);
     });
 
-    events.subscribe('user:roomPage', (roomID) => {
-      this.navCtrl.push(RoomPage, { id: roomID });
+    events.subscribe('user:roomPage', (roomID, sport, time, lat, lng) => {
+      this.navCtrl.push(RoomPage, { id: roomID, sport: sport, time: time, lat: lat, lng: lng });
     });
   }
 
