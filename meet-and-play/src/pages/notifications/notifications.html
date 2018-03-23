@@ -1,0 +1,28 @@
+<ion-content class = "background" >
+  <h1 class = heading>Notifications</h1>
+  <ion-card>
+    <ion-card-content #scroll>
+      <ion-scroll scrollbar-y="true" scrollY="true" style="height:87vh">
+      <ion-list>
+          <ion-item *ngFor="let notification of notifications.slice().reverse()" text-wrap no-lines>
+              <!-- <strong></strong>-->
+              <div class = "user">
+                <img [src] ="notification.url" alt="Profile picture">
+              </div>
+              <div class = "notifContent">{{notification.content}}
+                <button ion-button (click)="Accept(notification)" color = "balanced">Accept</button>
+                <button class ="Reject" ion-button (click)="Reject(notification)" color = "danger">Reject</button>
+              </div>
+              <div class = "name">{{notification.name}}:</div>
+            </ion-item>
+          <ion-item *ngIf="notifications==0" text-wrap no-lines>
+            <strong>
+              <h1>No notifications to show</h1>
+            </strong>
+          </ion-item>
+      </ion-list>
+    </ion-scroll>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>

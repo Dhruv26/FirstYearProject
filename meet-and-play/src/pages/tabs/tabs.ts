@@ -10,6 +10,7 @@ import { ProfilePage } from '../profile/profile';
 import { RoomChatPage } from '../room-chat/room-chat';
 import { RoomInformationPage } from '../room-information/room-information';
 import { RoomsPage } from '../rooms/rooms';
+import { NotificationsPage } from '../notifications/notifications';
 import { IonicPage, NavController, Tabs, Events } from 'ionic-angular';
 import { ViewChild} from '@angular/core';
 import { User } from '../../models/User';
@@ -24,7 +25,8 @@ export class TabsPage {
 
   tab1 = HomePage;
   tab2 = RoomsPage;
-  tab3 = ProfilePage;
+  tab3 = NotificationsPage;
+  tab4 = ProfilePage;
 
   @ViewChild('primaryTabs') primaryTabs: Tabs;
 

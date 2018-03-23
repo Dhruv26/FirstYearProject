@@ -17,6 +17,7 @@ import { RoomInformationPage } from '../pages/room-information/room-information'
 import { RoomsPage } from '../pages/rooms/rooms';
 import { SignUpPage } from '../pages/sign-up/sign-up';
 import { AdditionalInfoPage } from '../pages/additional-info/additional-info';
+import { NotificationsPage } from '../pages/notifications/notifications';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -49,7 +50,8 @@ import { IonicStorageModule } from '@ionic/storage';
     RoomInformationPage,
     RoomsPage,
     SignUpPage,
-    AdditionalInfoPage
+    AdditionalInfoPage,
+    NotificationsPage
   ],
   imports: [
     BrowserModule,
@@ -73,7 +75,8 @@ import { IonicStorageModule } from '@ionic/storage';
     RoomInformationPage,
     RoomsPage,
     SignUpPage,
-    AdditionalInfoPage
+    AdditionalInfoPage,
+    NotificationsPage
   ],
   providers: [
     StatusBar,
