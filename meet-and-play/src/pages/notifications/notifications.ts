@@ -70,14 +70,14 @@ export class NotificationsPage {
       let url = 'api/request/forUser/' + data;
       this.http.get(url).subscribe(response => {
         this.notifications = JSON.parse((<any>response)._body);
-        console.log(this.notifications);
+        console.log(response);
       }, error => {
         console.log(error);
       });
     });
   }
 
-  updateRequestStatus(requestId, status: bool)
+  updateRequestStatus(requestId, status: boolean)
   {
     let url = 'api/request/acceptRequest/' + requestId + '/' + status;
     this.http.post(url, {}, {}).subscribe(response => {

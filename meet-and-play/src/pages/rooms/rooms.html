@@ -1,67 +1,21 @@
-<!--
-  Generated template for the RoomsPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
-
-<ion-header>
-
-  <ion-navbar>
-    <ion-title>Rooms</ion-title>
-  </ion-navbar>
-
-</ion-header>
--->
-
 <ion-content class = "background" >
     <h1 class = heading>Rooms</h1>
     <ion-card>
-      <ion-card-header>
-        Choose an option
-      </ion-card-header>
       <ion-card-content>
-        <ion-grid>
-          <ion-row>
-            <ion-col col-6>
-              <button ion-button (click)="CreateRoom()" color = "danger" block outline>Create Room</button>
-            </ion-col>
-            <ion-col col-6>
-              <button ion-button (click)="JoinRoom()" color = "danger" block outline>Join Room</button>
-            </ion-col>
-          </ion-row>
-        </ion-grid>
-        <!--
-        <ion-list>
-            <ion-item>
-              <strong>Local suggestions: </strong>
-            </ion-item>
-            <ion-item>
-                <strong>Kickboxing, </strong> Sudden community centre
-                <button ion-button color = "danger"> Join </button>
-              </ion-item>
-              <ion-item>
-                  <strong>Football, </strong> Falinge Park 
-                  <button ion-button color = "danger"> Join </button>
-              </ion-item>
-              <ion-item>
-                  <strong>Basketball, </strong> Falinge Park
-                  <button ion-button color = "danger"> Join </button>
-              </ion-item>   
-          </ion-list>
-        -->
-          <!--
-          <div *ngFor="let suggestion of suggestions">
-            <strong>{{suggestion.info}}</strong>
-          </div>
-        -->
 
-          <ion-list>
-              <ion-item *ngFor="let suggestion of suggestions">
-                  <!-- <strong></strong>-->
-                  <button ion-button large (click)="joinSuggestion(suggestion.id)" color = "danger" full> {{suggestion.info}} </button>
-                  </ion-item>
+        <ion-scroll scrollbar-y="true" scrollY="true" style="height:600px;">
+          <ion-list no-lines>
+              <ion-item *ngFor="let room of rooms">
+                <div class = "user">  <img [src] ="url" alt="Room picture" class="userimg">  </div>
+                <div class = "name"> {{room.sport}}</div>
+
+                <div class = "notifContent">{{ room.time | date:'dd/MM/yyyy h:mm' }}:</div>
+                </ion-item>
           </ion-list>
-        
+        </ion-scroll>
+
+
+
       </ion-card-content>
     </ion-card>
     <ion-fab bottom right #fab>
